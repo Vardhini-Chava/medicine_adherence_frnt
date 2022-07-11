@@ -1,0 +1,6 @@
+projectKey=MedicineAdherence
+serverUrl=http://localhost:9000
+serverVersion=9.5.0.56709
+dashboardUrl=http://localhost:9000/dashboard?id=MedicineAdherence
+ceTaskId=AYHuC1oQqDtpbAH4n6zV
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYHuC1oQqDtpbAH4n6zV
