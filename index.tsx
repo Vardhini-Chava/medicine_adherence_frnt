@@ -6,8 +6,7 @@ import {name as appName} from './app.json';
 import {
   PlaySound,
   Pushnotificationforeground,
-} from './src/alarm/common/Pushnotificationconfig';
-
+} from './src/components/alarm/pushNotificationConfig';
 PushNotification.configure({
   onAction: function (notification: any) {
     if (notification.action === 'Open app to mark') {
@@ -46,7 +45,12 @@ messaging().onNotificationOpenedApp((mss: any) => {
 
 messaging()
   .getInitialNotification()
-  
+  .then(mssg => {
+    if (mssg) {
+      /* do nothing */
+    }
+  });
+
 function sethandler() {
   messaging().setBackgroundMessageHandler(async (remoteMessage: any) => {
     if (remoteMessage.notification.title === 'caretaker') {

@@ -1,52 +1,68 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
-import { View} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import {Button, Text} from 'react-native-elements';
 import * as yup from 'yup';
 import Toast from 'react-native-toast-message';
+import {logger} from 'react-native-logs';
 import LottieView from 'lottie-react-native';
 import {TextInput} from 'react-native-paper';
 import SQLite from 'react-native-sqlite-storage';
 import {Formik} from 'formik';
 import BottomSheet from 'reanimated-bottom-sheet';
 import * as Animatable from 'react-native-animatable';
-import globalDb from '../repositories/database/Globaldb';
+import globalDb from '../repositories/database/globalDb';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import styles from "./screenStyles/userMedStyles";
+import styles from './screenStyles/UserMedStyles';
 
-
-
+const defaultConfig = {
+  levels: {
+    debug: 0,
+    info: 1,
+    warn: 2,
+    error: 3,
+  },
+  transportOptions: {
+    colors: {
+      info: 'blueBright',
+      warn: 'yellowBright',
+      error: 'redBright',
+    },
+  },
+};
+var log = logger.createLogger(defaultConfig);
 async function createdb() {
   let first = await AsyncStorage.getItem('first');
   if (first === null) {
     SQLite.deleteDatabase(
       {name: 'MedStickdb', location: 'default'},
       () => {
-        console.log('second db deleted');
+        log.info('second db deleted');
       },
       error => {
-        console.log('ERROR: ' + error);
+        log.error('Error: ', error);
       },
     );
     await AsyncStorage.setItem('first', '1');
   }
-  return globalDb();
+  const db = globalDb();
+  return db;
 }
 const UserMed = ({route, navigation}) => {
   const {id} = route.params;
-  console.log(id);
+  log.info(id);
   const sheetRef = React.useRef(null);
   const savemedicinetodb = async ({Name, Description}) => {
     const db = await createdb();
 
     await db.transaction(txn => {
-      console.log(txn);
+      log.info(txn);
       txn.executeSql(
         'CREATE TABLE IF NOT EXISTS User_medicines(user_id INTEGER PRIMARY KEY NOT NULL, medicine_name TEXT, medicine_des TEXT , title TEXT, time TEXT , days TEXT , start_date TEXT , end_date TEXT , status INTEGER , sync INTEGER , total_med_reminders INTEGER , current_count INTEGER)',
         [],
       );
-      let value = Math.floor(10000 + Math.random() * 90000);
+      var value = Math.floor(10000 + Math.random() * 90000);
 
       txn.executeSql(
         'INSERT INTO User_medicines (user_id,medicine_name,medicine_des,title,time,days,start_date,end_date,status,sync,total_med_reminders,current_count) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
@@ -71,17 +87,13 @@ const UserMed = ({route, navigation}) => {
   const renderContent = () => {
     return (
       <Animatable.View animation="slideInUp" duration={1000} delay={80}>
-        <View
-          style={styles.container1}>
-          <Text
-            style={styles.addMedText}>
-            Add New Medicine
-          </Text>
+        <View style={styles.container1}>
+          <Text style={styles.addMedText}>Add New Medicine</Text>
           <Formik
             initialValues={{Name: '', Description: ''}}
             validationSchema={schema}
             onSubmit={values => {
-              console.log(values);
+              log.info(values);
               savemedicinetodb(values);
             }}>
             {formikprops => (
@@ -124,7 +136,6 @@ const UserMed = ({route, navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Toast></Toast>
       <View style={styles.lottieView}>
         <LottieView
           style={styles.lottie}

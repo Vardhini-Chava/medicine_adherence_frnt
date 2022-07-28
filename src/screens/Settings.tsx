@@ -1,7 +1,7 @@
-import { Linking, Share, View} from 'react-native';
 import React from 'react';
+import { Linking, Share, View} from 'react-native';
 import SettingsList from 'react-native-settings-list';
-import styles from "./screenStyles/settingStyles";
+import styles from "./screenStyles/SettingStyles";
 
 
 interface Props {
@@ -15,12 +15,14 @@ const Settings: React.FC<Props> = ({navigation}: Props) => {
         <SettingsList.Header
           headerText="Settings"
           headerStyle={styles.setting}
+          testId='settings'
         />
         <SettingsList.Item
           hasNavArrow={true}
           title="Notification settings"
           titleStyle={styles.settingItems}
           onPress={() => Linking.openSettings()}
+          testId='openSettings'
         />
 
         <SettingsList.Header
@@ -31,7 +33,8 @@ const Settings: React.FC<Props> = ({navigation}: Props) => {
           hasNavArrow={false}
           title="About Medstick"
           titleStyle={styles.settingItems}
-          onPress={() => navigation.navigate('About')}
+          onPress={() => navigation.navigate('aboutApp')}
+          testId='aboutApp'
         />
         <SettingsList.Item
           hasNavArrow={false}

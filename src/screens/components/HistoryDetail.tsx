@@ -2,8 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
 import Timeline from 'react-native-timeline-flatlist';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faRemove} from '@fortawesome/free-solid-svg-icons';
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
 interface Props {
   data: any;
@@ -68,15 +67,15 @@ const HistoryDetail: React.FC<Props> = ({data, modalVisibility}) => {
         borderRadius: 20,
       }}>
       <View style={{alignItems: 'flex-end', paddingRight: 10, paddingTop: 10}}>
-        <FontAwesomeIcon
+        <Icon
           size={24}
-          icon={faRemove}
+          name='trash'
           color="#3743ab"
           onPress={modalVisibility}
         />
       </View>
       <View style={{padding: 12, alignItems: 'center'}}>
-        <Text style={{color: 'grey', fontSize: 20, fontWeight: '700'}}>
+        <Text style={{color: 'grey', fontSize: 20, fontWeight: '700'}} testID='dateText'>
           Date - {data.date}
         </Text>
       </View>
