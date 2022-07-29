@@ -2,6 +2,7 @@ import React from 'react';
 import {create} from 'react-test-renderer';
 import Settings from '../../src/screens/Settings';
 
+
 describe('Settins Screen', () => {
   it('renders correctly', () => {
     const tree = create(<Settings navigation={undefined}/>);

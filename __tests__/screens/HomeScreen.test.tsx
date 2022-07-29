@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import HomeScreen from '../../src/screens/HomeScreen';
 
 describe('Click send image', () => {
-//   it('renders correctly', () => {
+//  it('renders correctly', () => {
 //     const tree = renderer
 //       .create(<HomeScreen />)
 //       .toJSON();
