@@ -1,8 +1,6 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {FlatList, View, Image, Text} from 'react-native';
-import {Button, ListItem, SearchBar} from 'react-native-elements';
+import {Button, ListItem} from 'react-native-elements';
 import {API_URL} from '../../repositories/var';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {logger} from 'react-native-logs';
@@ -30,11 +28,10 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 const Searchcaretaker = ({navigation}) => {
   const [data, datastate] = React.useState([]);
   const [searchload, searchloadstate] = React.useState(false);
-
   const sendmailtouser = async (email: any) => {
     searchloadstate(true);
     let udet = await GoogleSignin.getCurrentUser();
@@ -144,10 +141,7 @@ const Searchcaretaker = ({navigation}) => {
         onSubmit={values => sendmailtouser(values.email)}>
         {({handleChange, handleSubmit, values, errors, touched}) => (
           <>
-            <SearchBar
-              placeholder="Search Caretaker.."
-              value={values.email}
-              onChangeText={handleChange('email')}></SearchBar>
+            
             <Text style={styles.text}>{touched.email && errors.email}</Text>
 
             <Button
@@ -162,7 +156,7 @@ const Searchcaretaker = ({navigation}) => {
       {data.length === 0 && (
         <View style={styles.imgContainer}>
           <Image
-            source={require('../../../assests/images/searchcaretaker.png')}
+            source={require('../../../assets/images/searchcaretaker.png')}
             style={styles.img}
             resizeMode="stretch"></Image>
         </View>

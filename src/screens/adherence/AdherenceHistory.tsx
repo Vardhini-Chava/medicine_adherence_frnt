@@ -1,17 +1,5 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  Text,
-  View,
-  FlatList,
-  PermissionsAndroid,
-  Image,
-  LogBox,
-  Modal,
-} from 'react-native';
-
+import {Text,View,FlatList,PermissionsAndroid,Image,LogBox,Modal} from 'react-native';
 import Toast from 'react-native-toast-message';
 import {logger} from 'react-native-logs';
 import ProgressCircle from 'react-native-progress-circle';
@@ -33,11 +21,7 @@ import styles from './adherenceStyles/AdherenceHistoryStyles';
 let globalmedId;
 LogBox.ignoreLogs(['Require cycle:']);
 LogBox.ignoreAllLogs();
-var db: any;
-interface singledate {
-  not_taken: [];
-  taken: [];
-}
+let db: any;
 const defaultConfig = {
   levels: {
     debug: 0,
@@ -53,7 +37,7 @@ const defaultConfig = {
     },
   },
 };
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 const AdherenceHistory: React.FC = () => {
   const [pickerValue, setPickerValue] = React.useState<string>('');
   const [allreminders, reminders_state] = React.useState<[]>([]);
@@ -65,7 +49,7 @@ const AdherenceHistory: React.FC = () => {
   const [modalVisible, setModalVisible] = React.useState(false);
   const [showDetail, showDetailState] = React.useState(false);
   const [imagearray, setimagearray] = React.useState([]);
-  const [index, setindex] = React.useState(0);
+  const [index] = React.useState(0);
   const fetchreminders = async (dbs: any) => {
     let reminder_array: any = [];
 
@@ -155,7 +139,6 @@ const AdherenceHistory: React.FC = () => {
           {showDetail ? (
             <>
               <Carousel
-                onSnapToItem={inde => setindex(inde)}
                 layout={'stack'}
                 data={imagearray}
                 renderItem={({item}) => {

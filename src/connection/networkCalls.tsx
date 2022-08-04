@@ -18,12 +18,12 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 
 const networkCalls = {
   synchistory: async (medId: number, medHistory: any) => {
     log.info(medHistory);
-    let response = await fetch(
+    return await fetch(
       `${API_URL}/api/v1/medicine-history/sync?medId=${medId}`,
       {
         method: 'POST',
@@ -33,7 +33,6 @@ const networkCalls = {
         },
       },
     );
-    return response;
   },
   getmedicineHistory: async medId => {
     let response = await fetch(

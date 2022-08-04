@@ -1,27 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
-import {
-  Text,
-  View,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  LogBox,
-} from 'react-native';
+import {Text,View,Image,ScrollView,TouchableOpacity} from 'react-native';
 import {List} from 'react-native-paper';
 import {API_URL} from '../../repositories/var';
 import * as Progress from 'react-native-progress';
 import {logger} from 'react-native-logs';
-
 import {Button} from 'react-native-elements';
 import styles from './patientStyles/PatientProfileStyles';
-
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-import {useDispatch, useSelector} from 'react-redux';
-import {fetchPatients} from '../../redux/actions/patient/PatientActions';
+import {useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const defaultConfig = {
@@ -41,10 +27,7 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
-
-LogBox.ignoreLogs(['Require cycle:']);
-
+let log = logger.createLogger(defaultConfig);
 const ViewProfile = ({route, navigation}) => {
   const [userdetails, _userdetailsstate] = React.useState<any>();
   const [progress, _progress_status] = React.useState(true);
@@ -55,18 +38,12 @@ const ViewProfile = ({route, navigation}) => {
 
     await fetch(url).then(resp => log.info(resp));
   };
-
-  const patients = useSelector(
-    state => state.PatientProfileReducer.patientList,
-  );
-  const {load} = useSelector(state => state.PatientProfileReducer);
-  log.info(load, 'load');
+log.info('load');
   const [_refresh, refeereshstate] = React.useState(false);
 
   const dispatch = useDispatch();
   const fetchpatients = async () => {
     let user_id = await AsyncStorage.getItem('user_id');
-    dispatch(fetchPatients(user_id));
     refeereshstate(false);
   };
 

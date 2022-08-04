@@ -75,7 +75,6 @@ const DrawerNavigator = ({navigation}: any) => {
               size={22}
               color="white"
               name='man'
-             
             />
           ),
         }}
@@ -93,7 +92,6 @@ const DrawerNavigator = ({navigation}: any) => {
           ),
         }}
         name="My Caretaker"
-        navig={this.navigation}
         component={Caretakercomp}
       />
 
@@ -106,8 +104,7 @@ const DrawerNavigator = ({navigation}: any) => {
           drawerIcon: () => (
             <IonIcon
               size={22}
-              color="white"
-             name='settings'
+              color="white"name='settings'
             />
           ),
         }}

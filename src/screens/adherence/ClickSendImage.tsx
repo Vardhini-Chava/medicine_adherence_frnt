@@ -1,5 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import {RNCamera} from 'react-native-camera';
 import {useCamera} from 'react-native-camera-hooks';
@@ -22,9 +20,9 @@ const defaultConfig = {
     },
   },
 };
-var log = logger.createLogger(defaultConfig);
-const CameraScreen = ({navigation}) => {
-  const [{cameraRef}, {takePicture}] = useCamera(null);
+let log = logger.createLogger(defaultConfig);
+const CameraScreen = ({_navigation}) => {
+  const [{cameraRef}] = useCamera(null);
   return (
     <View style={styles.container}>
       <View style={styles.innerView}>
@@ -34,13 +32,6 @@ const CameraScreen = ({navigation}) => {
           style={styles.camera}></RNCamera>
 
         <TouchableOpacity
-          onPress={async () => {
-            const data = await takePicture();
-            log.info(data.uri);
-            navigation.navigate('Sentocaretaker', {
-              image_uri: data.uri,
-            });
-          }}
           style={styles.image}>
           <LottieView
             style={styles.lottieAnimation}

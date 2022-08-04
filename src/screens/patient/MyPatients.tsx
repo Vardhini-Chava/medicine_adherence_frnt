@@ -1,14 +1,5 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  FlatList,
-  RefreshControl,
-  View,
-  TouchableOpacity,
-  Image,
-  Alert,
-} from 'react-native';
+import {FlatList,RefreshControl,View,TouchableOpacity,Image,Alert} from 'react-native';
 import {ListItem} from 'react-native-elements';
 import {Card} from 'react-native-paper';
 import {useFocusEffect} from '@react-navigation/native';
@@ -17,8 +8,7 @@ import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import styles from './patientStyles/MyPatientStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {logger} from 'react-native-logs';
-import {useDispatch, useSelector} from 'react-redux';
-import {fetchPatients} from '../../redux/actions/patient/PatientActions';
+import {useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface Props {
@@ -41,18 +31,16 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 const Mypatient: React.FC<Props> = ({navigation}: Props) => {
-  const patients = useSelector(state => state.PatientReducer.patientList);
-  const {load} = useSelector(state => state.PatientReducer);
-  log.info(load, 'load');
+
+  log.info('load');
   const [data, _datastate] = React.useState([]);
   const [refresh, refeereshstate] = React.useState(false);
 
   const dispatch = useDispatch();
   const fetchpatients = async () => {
     let user_id = await AsyncStorage.getItem('user_id');
-    dispatch(fetchPatients(user_id));
     refeereshstate(false);
   };
 
@@ -145,7 +133,7 @@ const Mypatient: React.FC<Props> = ({navigation}: Props) => {
       {data.length === 0 && (
         <View style={styles.imgView}>
           <Image
-            source={require('../../../assests/images/nopatients.png')}
+            source={require('../../../assets/images/nopatients.png')}
             style={styles.img}
             resizeMode="contain"></Image>
         </View>

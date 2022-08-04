@@ -1,17 +1,13 @@
-/* eslint-disable react-native/no-inline-styles */
 import {View, Text} from 'react-native';
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Toast from 'react-native-toast-message';
-import {
-  GoogleSignin,
-  GoogleSigninButton,
-} from '@react-native-google-signin/google-signin';
+import {GoogleSignin,GoogleSigninButton,} from '@react-native-google-signin/google-signin';
 import {logger} from 'react-native-logs';
 import messaging from '@react-native-firebase/messaging';
-import {Signupuser} from '../../repositories/signup/signUp';
 import * as Progress from 'react-native-progress';
 import styles from './loginStyles/LoginStyles';
+import { Signupuser } from '../../redux/apis/access';
 
 const defaultConfig = {
   levels: {
@@ -30,7 +26,7 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 const Loginscreen = ({navigation}) => {
   const [loading, loadingstate] = React.useState(false);
 

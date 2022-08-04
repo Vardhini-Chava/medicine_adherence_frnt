@@ -1,5 +1,3 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react-native/no-inline-styles */
 import {View} from 'react-native';
 import React from 'react';
 import {Button, Text} from 'react-native-elements';
@@ -31,8 +29,8 @@ const defaultConfig = {
     },
   },
 };
-var log = logger.createLogger(defaultConfig);
-async function createdb() {
+let log = logger.createLogger(defaultConfig);
+async function created() {
   let first = await AsyncStorage.getItem('first');
   if (first === null) {
     SQLite.deleteDatabase(
@@ -46,15 +44,14 @@ async function createdb() {
     );
     await AsyncStorage.setItem('first', '1');
   }
-  const db = globalDb();
-  return db;
+  return globalDb();
 }
 const UserMed = ({route, navigation}) => {
   const {id} = route.params;
   log.info(id);
   const sheetRef = React.useRef(null);
   const savemedicinetodb = async ({Name, Description}) => {
-    const db = await createdb();
+    const db = await created();
 
     await db.transaction(txn => {
       log.info(txn);
@@ -62,7 +59,7 @@ const UserMed = ({route, navigation}) => {
         'CREATE TABLE IF NOT EXISTS User_medicines(user_id INTEGER PRIMARY KEY NOT NULL, medicine_name TEXT, medicine_des TEXT , title TEXT, time TEXT , days TEXT , start_date TEXT , end_date TEXT , status INTEGER , sync INTEGER , total_med_reminders INTEGER , current_count INTEGER)',
         [],
       );
-      var value = Math.floor(10000 + Math.random() * 90000);
+      let value = Math.floor(10000 + Math.random() * 90000);
 
       txn.executeSql(
         'INSERT INTO User_medicines (user_id,medicine_name,medicine_des,title,time,days,start_date,end_date,status,sync,total_med_reminders,current_count) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
@@ -139,7 +136,7 @@ const UserMed = ({route, navigation}) => {
       <View style={styles.lottieView}>
         <LottieView
           style={styles.lottie}
-          source={require('../../assests/animate/med_des.json')}
+          source={require('../../assets/animate/med_des.json')}
           autoPlay
           loop
           speed={1}></LottieView>

@@ -1,6 +1,6 @@
-projectKey=med-adherence-key
+projectKey=adher_med_key
 serverUrl=http://localhost:9000
 serverVersion=9.5.0.56709
-dashboardUrl=http://localhost:9000/dashboard?id=med-adherence-key
-ceTaskId=AYJJUpcX6Qb7w8KczklP
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYJJUpcX6Qb7w8KczklP
+dashboardUrl=http://localhost:9000/dashboard?id=adher_med_key
+ceTaskId=AYJnT1qfIawhnZsyijII
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYJnT1qfIawhnZsyijII

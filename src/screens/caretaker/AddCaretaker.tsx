@@ -1,13 +1,5 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react-native/no-inline-styles */
-import {
-  FlatList,
-  RefreshControl,
-  View,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {FlatList,RefreshControl,View,TouchableOpacity,Image} from 'react-native';
+import React, {useState} from 'react';
 import {Button, ListItem, SpeedDial} from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Card} from 'react-native-paper';
@@ -41,7 +33,7 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 const Addcaretaker: React.FC<{navigation}> = Props => {
   const {navigation} = Props;
   const [open, setOpen] = React.useState(false);
@@ -106,12 +98,12 @@ const Addcaretaker: React.FC<{navigation}> = Props => {
           refreshControl={
             <RefreshControl
               refreshing={refresh}
-              onRefresh={fetchCaretakers}></RefreshControl>
+              ></RefreshControl>
           }></FlatList>
         {isLoad && (
           <View style={styles.imgView}>
             <Image
-              source={require('../../../assests/images/nocaretakers.jpg')}
+              source={require('../../../assets/images/nocaretakers.jpg')}
               style={styles.img}
               resizeMode="contain"></Image>
           </View>

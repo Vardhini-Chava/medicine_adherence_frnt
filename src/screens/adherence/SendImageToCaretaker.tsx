@@ -1,15 +1,4 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-bitwise */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react-native/no-inline-styles */
-import {
-  Image,
-  Modal,
-  ScrollView,
-  TouchableOpacity,
-  View,
-  LogBox,
-} from 'react-native';
+import {Image,Modal,ScrollView,TouchableOpacity,View,LogBox} from 'react-native';
 import {API_URL} from '../../repositories/var';
 import React, {useState, useEffect} from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
@@ -47,7 +36,7 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 const db = globalDb();
 let medName = '';
 let medId: number = 0;
@@ -189,14 +178,14 @@ const SendImageToCaretaker = ({route, navigation}) => {
       );
     }
     const formdata = new FormData();
-    var dt = new Date().getTime();
+    let dt = new Date().getTime();
 
     let patientName = await AsyncStorage.getItem('user_name');
 
-    var file_name = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
+    let file_name = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
       /[xy]/g,
       function (c) {
-        var r = (dt + Math.random() * 16) % 16 | 0;
+        let r = (dt + Math.random() * 16) % 16 | 0;
         dt = Math.floor(dt / 16);
         return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
       },

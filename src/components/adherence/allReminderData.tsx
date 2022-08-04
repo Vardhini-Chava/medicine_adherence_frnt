@@ -1,4 +1,3 @@
-/* eslint-disable radix */
 import globalDb from '../../repositories/database/globalDb';
 import {logger} from 'react-native-logs';
 
@@ -19,7 +18,7 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 
 const db = globalDb();
 const allreminderdata = async (med_name: any) => {
@@ -74,7 +73,7 @@ const allreminderdata = async (med_name: any) => {
       });
     });
   }
-  map = await reminder_promise();
+
 
   log.info(map);
   return {mapper: map, meds_id: med_id};

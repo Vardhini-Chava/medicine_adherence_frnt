@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react-native/no-inline-styles */
 import Addcaretaker from './AddCaretaker';
 import React from 'react';
 import CaretakerReq from './CaretakerReq';
@@ -10,7 +7,6 @@ import {Tab, TabView} from 'react-native-elements';
 import { Caretaker_nurse, Userfriend } from '../../components/caretaker/allIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './caretakerStyles/CaretakerComStyles';
-
 
 export default function Caretakercomp({navigation}) {
   const [index, setIndex] = React.useState(0);

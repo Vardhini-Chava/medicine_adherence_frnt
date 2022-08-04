@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Settins Screen renders correctly 1`] = `
+exports[`Settings Screen renders correctly 1`] = `
 <View
   style={
     Object {
@@ -40,7 +40,7 @@ exports[`Settins Screen renders correctly 1`] = `
         >
           <View
             accessible={false}
-            focusable={true}
+            focusable={false}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -146,7 +146,7 @@ exports[`Settins Screen renders correctly 1`] = `
         >
           <View
             accessible={false}
-            focusable={true}
+            focusable={false}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -208,7 +208,7 @@ exports[`Settins Screen renders correctly 1`] = `
           </View>
           <View
             accessible={false}
-            focusable={true}
+            focusable={false}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}

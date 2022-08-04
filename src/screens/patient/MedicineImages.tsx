@@ -1,14 +1,6 @@
 import {useFocusEffect} from '@react-navigation/native';
 import React, {useState} from 'react';
-import {
-  Text,
-  Dimensions,
-  View,
-  Image,
-  FlatList,
-  ActivityIndicator,
-  LogBox,
-} from 'react-native';
+import {Text,Dimensions,View,Image,FlatList,ActivityIndicator,LogBox} from 'react-native';
 import {logger} from 'react-native-logs';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {API_URL} from '../../repositories/var';
@@ -34,7 +26,7 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 const CarouselCardItem = ({item}) => {
   const [load, setload] = useState(true);
   log.info(item);
@@ -132,7 +124,7 @@ const MedicineImages = ({route}) => {
       {imageData.length === 0 ? (
         <View style={styles.imgView}>
           <Image
-            source={require('../../../assests/images/noImages.png')}
+            source={require('../../../assets/images/noImages.png')}
             style={styles.img}
             resizeMode="contain"></Image>
         </View>

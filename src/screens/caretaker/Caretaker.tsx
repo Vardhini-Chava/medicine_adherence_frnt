@@ -1,11 +1,9 @@
-/* eslint-disable react/self-closing-comp */
 import {Text} from 'react-native';
 import React from 'react';
 import Addmedicine from '../AddMedicine';
 import {createStackNavigator} from '@react-navigation/stack';
 import UserMed from '../UserMed';
 const Stack = createStackNavigator();
-
 const CareTaker = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="Addmedicine">

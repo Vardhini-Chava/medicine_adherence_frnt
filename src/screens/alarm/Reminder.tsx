@@ -1,9 +1,3 @@
-/* eslint-disable radix */
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/self-closing-comp */
-
 import React, {useEffect} from 'react';
 import {View, Text, ScrollView, Alert} from 'react-native';
 import {Button} from 'react-native-elements';
@@ -11,19 +5,16 @@ import {logger} from 'react-native-logs';
 import {Divider} from 'react-native-elements/dist/divider/Divider';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
-
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {day_data} from '../../components/alarm/timeData';
 import PushNotification, {Importance} from 'react-native-push-notification';
-
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon2 from 'react-native-vector-icons/MaterialIcons';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
-
 import {TextInput} from 'react-native-paper';
 import CheckBox from 'react-native-check-box';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
-import DateTimePicker from 'react-native-modal-datetime-picker'; //NOSONAR false positive
+import DateTimePicker from 'react-native-modal-datetime-picker'; 
 import globalDb from '../../repositories/database/globalDb';
 import styles from './alarmStyles/ReminderStyles';
 
@@ -44,9 +35,9 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 
-var counter = 0;
+let counter = 0;
 
 const Reminder = ({route, navigation}) => {
   const db = globalDb();
@@ -68,7 +59,7 @@ const Reminder = ({route, navigation}) => {
   }, []);
 
   const multiSliderValuesChange = values => {
-    var curr_date = new Date();
+    let curr_date = new Date();
     log.info(curr_date);
     log.info(curr_date.setDate(curr_date.getDate() + values[0]));
 
@@ -84,7 +75,7 @@ const Reminder = ({route, navigation}) => {
   const [picker, pickerstate] = React.useState(false);
   const [selectedItems, _slectedstate] = React.useState([]);
   const [selecteddaysItems, slecteddaysstate] = React.useState([]);
-  const [load, loadstate] = React.useState(false);
+  const [load, coarctate] = React.useState(false);
   const [start_date, start_datestate] = React.useState(new Date());
   const [end_date, end_datestate] = React.useState(new Date());
   const [store_start_date, _store_start_datestate] = React.useState<any>(
@@ -114,7 +105,7 @@ const Reminder = ({route, navigation}) => {
 
   const setreminderwithselecteddate = (titl: any) => {
     counter = 0;
-    var now = new Date();
+    let now = new Date();
 
     now.setDate(start_date.getDate());
 
@@ -122,8 +113,8 @@ const Reminder = ({route, navigation}) => {
     log.info(new Date(Date.now()));
     log.info('now', now);
     let sample_date = new Date(start_date);
-    var weeks: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-    var set = new Set<string>(selecteddaysItems);
+    let weeks: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+    let set = new Set<string>(selecteddaysItems);
     if (check1) {
       timeings.forEach((timee: any) => {
         counter += 1;
@@ -136,7 +127,6 @@ const Reminder = ({route, navigation}) => {
           title: titl,
           message: 'Time to eat your medicine',
           subText: 'Mark as read if you have taken',
-          id: num.toString(),
           color: '#3743ab',
           showWhen: true,
           tag: id.toString(),
@@ -245,7 +235,6 @@ const Reminder = ({route, navigation}) => {
   };
 
   const savereminder = () => {
-    //NOSONAR
     if (
       multiSliderValue[0] === 0 ||
       title.length === 0 ||
@@ -259,7 +248,7 @@ const Reminder = ({route, navigation}) => {
       ]);
       return;
     }
-    loadstate(true);
+    coarctate(true);
     let time = '';
     let days = '';
     for (let i = 0; i < timearray.length; i++) {
@@ -318,7 +307,7 @@ const Reminder = ({route, navigation}) => {
           log.info('item:', res.rows.item(i));
         }
 
-        loadstate(false);
+        coarctate(false);
         navigation.pop(1);
       });
     });

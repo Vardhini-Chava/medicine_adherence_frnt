@@ -18,8 +18,8 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
-var Sound = require('react-native-sound');
+let log = logger.createLogger(defaultConfig);
+let Sound = require('react-native-sound');
 
 function PlaySound() {
   Sound.setCategory('Alarm');

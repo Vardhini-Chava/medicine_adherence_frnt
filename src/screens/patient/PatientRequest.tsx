@@ -1,4 +1,3 @@
-/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import {View, FlatList, Image, RefreshControl} from 'react-native';
 import {Card} from 'react-native-paper';
@@ -26,10 +25,10 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
-const Patientrequest = () => {
+let log = logger.createLogger(defaultConfig);
+let Patientrequest = () => {
   const [patients, patientsdata] = React.useState([]);
-  const [refresh, refreshstate] = React.useState(false);
+  const [refresh, refeereshstate] = React.useState(false);
   const fetchpatientreq = async () => {
     const user_id = await AsyncStorage.getItem('user_id');
     fetch(`${API_URL}/api/v1/patient/requests?userId=${user_id}`)
@@ -38,13 +37,13 @@ const Patientrequest = () => {
         log.info(resp);
         if (resp.status === 'failed') {
           patientsdata([]);
-          refreshstate(false);
+          refeereshstate(false);
           return;
         }
         patientsdata(resp.userCaretakerList);
       })
       .catch(() => {
-        refreshstate(false);
+        refeereshstate(false);
       });
   };
 
@@ -120,7 +119,7 @@ const Patientrequest = () => {
                     }}
                     title="Confirm"
                     buttonStyle={styles.confirmButton}
-                    color="#4267B2"></Button>
+                    ></Button>
                   <View style={styles.space} />
                   <Button
                     onPress={() => {
@@ -128,7 +127,7 @@ const Patientrequest = () => {
                     }}
                     title="Delete"
                     buttonStyle={styles.deleteButton}
-                    color="#e53935"></Button>
+                  ></Button>
                 </View>
               </View>
             </View>

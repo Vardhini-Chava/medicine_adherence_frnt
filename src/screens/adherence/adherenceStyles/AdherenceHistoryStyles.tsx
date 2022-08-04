@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   carousalImageView: {
     padding: 30,
     flexDirection: 'column',
-    // backgroundColor: 'lightgrey',
     height: '60%',
     top: '25%',
     borderRadius: 30,
@@ -58,7 +57,6 @@ const styles = StyleSheet.create({
   },
   paginationInactiveDot: {
     backgroundColor: 'red',
-    // Define styles for inactive dots here
   },
   syncView: {
     flexDirection: 'row',

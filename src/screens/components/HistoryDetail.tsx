@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
 import Timeline from 'react-native-timeline-flatlist';
@@ -80,7 +79,7 @@ const HistoryDetail: React.FC<Props> = ({data, modalVisibility}) => {
         </Text>
       </View>
       <Timeline
-        style={{flex: 1, color: 'white', marginLeft: 10}}
+        style={{flex: 1,  marginLeft: 10}}
         data={filterData}
         circleSize={20}
         circleColor="#4dd0e1"

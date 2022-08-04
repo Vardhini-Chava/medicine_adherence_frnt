@@ -1,17 +1,12 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useRef} from 'react';
 import LottieView from 'lottie-react-native';
 import {Animated, StatusBar, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Medicineadherence from './adherence/MedicineAdherence';
 import Addmedicine from './AddMedicine';
-import Profile from './profile/Profile';
 import styles from './screenStyles/HomeScreenStyles';
+import { NavigationContainer } from '@react-navigation/native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator(); 
 
 const HomeScreen = () => {
   const progress = useRef(new Animated.Value(0)).current;
@@ -24,7 +19,9 @@ const HomeScreen = () => {
     }).start();
   }, []);
   return (
-    <View style={styles.container}>
+    
+<View style={styles.container}>
+<NavigationContainer>
       <StatusBar backgroundColor="#3743ab" />
 
       <Tab.Navigator
@@ -33,10 +30,6 @@ const HomeScreen = () => {
           tabBarInactiveTintColor: '#555',
           tabBarInactiveBackgroundColor: 'white',
           tabBarActiveBackgroundColor: '#e3f2fd',
-
-          headerRight: () => (
-            <Icon name="camera" color="black" size={40}></Icon>
-          ),
           tabBarActiveTintColor: '#bbdefb',
           tabBarLabelStyle: {
             fontSize: 16,
@@ -52,25 +45,23 @@ const HomeScreen = () => {
               <LottieView
                 style={styles.report}
                 speed={0.8}
-                source={require('../../assests/animate/heart.json')}
+                source={require('../../assets/animate/heart.json')}
                 progress={progress}
               />
             ),
           }}
-          component={Medicineadherence}
+          component={HomeScreen}
         />
         <Tab.Screen
           name="Medicine"
           key={2}
           options={{
             headerShown: false,
-            headerRight: () => (
-              <Icon color="black" size={40} name="camera"></Icon>
-            ),
+            
             tabBarIcon: () => (
               <LottieView
                 style={styles.medicine}
-                source={require('../../assests/animate/med2.json')}
+                source={require('../../assets/animate/med2.json')}
                 progress={progress}
               />
             ),
@@ -85,15 +76,18 @@ const HomeScreen = () => {
             tabBarIcon: () => (
               <LottieView
                 style={styles.profile}
-                source={require('../../assests/animate/profile.json')}
+                source={require('../../assets/animate/profile.json')}
                 progress={progress}
               />
             ),
           }}
-          component={Profile}
+          component={HomeScreen}
         />
       </Tab.Navigator>
+      </NavigationContainer>
     </View>
+    
+    
   );
 };
 

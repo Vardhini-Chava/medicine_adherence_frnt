@@ -1,17 +1,7 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {
-  Text,
-  View,
-  FlatList,
-  PermissionsAndroid,
-  Modal,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
+import {Text,View,FlatList,PermissionsAndroid,Modal,ScrollView,TouchableOpacity} from 'react-native';
 import { logger } from 'react-native-logs';
 import Toast from 'react-native-toast-message';
-
 import ProgressCircle from 'react-native-progress-circle';
 import {Button, Divider} from 'react-native-elements';
 import {Card} from 'react-native-paper';
@@ -21,7 +11,6 @@ import * as Animatable from 'react-native-animatable';
 import downloadPdf from '../../components/adherence/downloadPdf';
 import LottieView from 'lottie-react-native';
 import HistoryDetail from '../../screens/components/HistoryDetail';
-import AdherencePercentage from '../../components/adherence/adherencePercentage';
 import styles from './patientStyles/PatientReportStyles';
 
 const defaultConfig = {
@@ -41,11 +30,11 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
+let log = logger.createLogger(defaultConfig);
 
 let detailData = {};
 
-var weeks: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+let weeks: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
 const months = [
   'Jan',
   'Feb',
@@ -147,9 +136,6 @@ export default function PatientReport({route}) {
     response.status === 'OK'
       ? setHistoryData(response.userMedicinesList)
       : setHistoryData([]);
-    AdherencePercentage(mstartDate, medDays, mTimes, mcc, '').then(per =>
-      setadherence(per),
-    );
   }
   function showalldates() {
     let alldates = [];
@@ -221,7 +207,7 @@ export default function PatientReport({route}) {
             <LottieView
               style={styles.lottie}
               speed={0.8}
-              source={require('../../../assests/animate/generatepdf.json')}
+              source={require('../../../assets/animate/generatepdf.json')}
               autoPlay
               loop
             />

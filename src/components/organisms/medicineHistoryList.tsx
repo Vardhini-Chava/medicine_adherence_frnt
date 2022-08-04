@@ -1,4 +1,3 @@
-/* eslint-disable react/self-closing-comp */
 import {Card} from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
 import {Text, TouchableOpacity, View} from 'react-native';

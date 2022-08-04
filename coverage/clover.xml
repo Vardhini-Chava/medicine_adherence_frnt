@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1659087617450" clover="3.2.0">
-  <project timestamp="1659087617450" name="All files">
-    <metrics statements="435" coveredstatements="384" conditionals="90" coveredconditionals="90" methods="136" coveredmethods="113" elements="661" coveredelements="587" complexity="0" loc="435" ncloc="435" packages="28" files="73" classes="73"/>
+<coverage generated="1659590600581" clover="3.2.0">
+  <project timestamp="1659590600581" name="All files">
+    <metrics statements="463" coveredstatements="407" conditionals="94" coveredconditionals="90" methods="146" coveredmethods="120" elements="703" coveredelements="617" complexity="0" loc="463" ncloc="463" packages="31" files="80" classes="80"/>
     <package name="assests.images">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Medstick_1.png" path="/home/nineleaps/Desktop/medicine_adherence_frnt/assests/images/Medstick_1.png">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="ProfileHeader.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/components/ProfileHeader.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.componentStyles">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="styles.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/components/componentStyles/styles.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.constants">
@@ -668,42 +685,75 @@
         <line num="1" count="18" type="stmt"/>
       </file>
     </package>
+    <package name="src.repositories.database">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="globalDb.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/repositories/database/globalDb.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="src.screens">
-      <metrics statements="12" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="3"/>
+      <metrics statements="34" coveredstatements="21" conditionals="4" coveredconditionals="0" methods="16" coveredmethods="8"/>
       <file name="AboutApp.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/AboutApp.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
       </file>
-      <file name="OnboardingScreen.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/OnboardingScreen.tsx">
-        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
+      <file name="AddMedicine.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/AddMedicine.tsx">
+        <metrics statements="18" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+      </file>
+      <file name="HomeScreen.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/HomeScreen.tsx">
+        <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
+        <line num="9" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+      </file>
+      <file name="OnboardingScreen.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/OnboardingScreen.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
       <file name="Settings.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/Settings.tsx">
-        <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.screens.adherence">
-      <metrics statements="8" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="ClickSendImage.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/adherence/ClickSendImage.tsx">
-        <metrics statements="8" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="10" count="1" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.screens.adherence.adherenceStyles">
@@ -722,7 +772,7 @@
       </file>
     </package>
     <package name="src.screens.screenStyles">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="AboutAppStyles.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/screenStyles/AboutAppStyles.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
@@ -730,6 +780,14 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
+      </file>
+      <file name="AddMedicineStyles.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/screenStyles/AddMedicineStyles.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="HomeScreenStyles.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/screenStyles/HomeScreenStyles.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
       </file>
       <file name="OnboardingStyes.tsx" path="/home/nineleaps/Desktop/medicine_adherence_frnt/src/screens/screenStyles/OnboardingStyes.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

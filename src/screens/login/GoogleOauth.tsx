@@ -1,11 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react-native/no-inline-styles */
 import {View} from 'react-native';
 import React from 'react';
-import {
-  GoogleSignin,
-  GoogleSigninButton,
-} from '@react-native-google-signin/google-signin';
+import {GoogleSignin,GoogleSigninButton,} from '@react-native-google-signin/google-signin';
 import {logger} from 'react-native-logs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Progress from 'react-native-progress';
@@ -14,7 +9,6 @@ import messaging from '@react-native-firebase/messaging';
 import checkConnectivity from '../../connection/checkConnectivity';
 import LottieView from 'lottie-react-native';
 import {Text} from 'react-native-elements';
-import {Signupuser} from '../../repositories/signup/signUp';
 import styles from './loginStyles/GoogleAuthStyles';
 
 interface Props {
@@ -37,8 +31,8 @@ const defaultConfig = {
   },
 };
 
-var log = logger.createLogger(defaultConfig);
-const Login: React.FC<{navigation}> = Props => {
+let log = logger.createLogger(defaultConfig);
+let Login: React.FC<{navigation: any}> = Props => {
   const {navigation} = Props;
   const [loading, loadingstate] = React.useState(false);
   const [_connected, connectedstate] = React.useState(false);
@@ -61,8 +55,7 @@ const Login: React.FC<{navigation}> = Props => {
       const token = await messaging().getToken();
       log.info(userinfo);
       loadingstate(true);
-      const response = await Signupuser.signup({userinfo, token});
-      const res: any = await response.json();
+      const res: any = Response;
 
       if (res.status === 'Success') {
         await AsyncStorage.setItem('user_id', res.userEntity[0].userId);
@@ -102,7 +95,7 @@ const Login: React.FC<{navigation}> = Props => {
       <Text style={styles.createText}>Create an account</Text>
       <LottieView
         style={styles.lottie}
-        source={require('../../../assests/animate/google.json')}
+        source={require('../../../assets/animate/google.json')}
         autoPlay
         loop
       />
