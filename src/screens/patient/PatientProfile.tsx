@@ -1,33 +1,28 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
-import {Text,View,Image,ScrollView,TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  LogBox,
+} from 'react-native';
 import {List} from 'react-native-paper';
 import {API_URL} from '../../repositories/var';
 import * as Progress from 'react-native-progress';
-import {logger} from 'react-native-logs';
 import {Button} from 'react-native-elements';
 import styles from './patientStyles/PatientProfileStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchPatients} from '../../redux/actions/patient/PatientActions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Logger from '../../components/logger';
 
-const defaultConfig = {
-  levels: {
-    debug: 0,
-    info: 1,
-    warn: 2,
-    error: 3,
-  },
-  transportOptions: {
-    colors: {
-      debug: 'greenBright',
-      info: 'blueBright',
-      warn: 'yellowBright',
-      error: 'redBright',
-    },
-  },
-};
+LogBox.ignoreLogs(['Require cycle:']);
 
-let log = logger.createLogger(defaultConfig);
 const ViewProfile = ({route, navigation}) => {
   const [userdetails, _userdetailsstate] = React.useState<any>();
   const [progress, _progress_status] = React.useState(true);
@@ -36,14 +31,20 @@ const ViewProfile = ({route, navigation}) => {
     url.searchParams.append('fcmToken', fcm_token);
     url.searchParams.append('medname', medname);
 
-    await fetch(url).then(resp => log.info(resp));
+    await fetch(url).then(resp => Logger.loggerInfo(resp));
   };
-log.info('load');
+
+  const patients = useSelector(
+    state => state.PatientProfileReducer.patientList,
+  );
+  // const {load} = useSelector(state => state.PatientProfileReducer);
+  // Logger.loggerInfo(load, 'load');
   const [_refresh, refeereshstate] = React.useState(false);
 
   const dispatch = useDispatch();
   const fetchpatients = async () => {
     let user_id = await AsyncStorage.getItem('user_id');
+    dispatch(fetchPatients(user_id));
     refeereshstate(false);
   };
 
@@ -141,7 +142,7 @@ log.info('load');
                   )}
                   right={() => <Icon name="caret-down"></Icon>}>
                   {userdetails.medicinesList.map(mlistitem => {
-                    log.info(mlistitem.medicineId);
+                    Logger.loggerInfo(mlistitem.medicineId);
                     return (
                       <List.Item
                         description={`${mlistitem.days}\n${mlistitem.time}`}
@@ -161,7 +162,7 @@ log.info('load');
                                 <TouchableOpacity
                                   style={styles.touch}
                                   onPress={() => {
-                                    log.info(mlistitem.medicineName);
+                                    Logger.loggerInfo(mlistitem.medicineName);
                                     sendnotificationtouser(
                                       userdetails.userEntityList[0].userDetails
                                         .fcmToken,

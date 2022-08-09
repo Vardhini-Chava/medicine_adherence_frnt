@@ -1,5 +1,14 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {FlatList,RefreshControl,View,TouchableOpacity,Image,Alert} from 'react-native';
+import {
+  FlatList,
+  RefreshControl,
+  View,
+  TouchableOpacity,
+  Image,
+  Alert,
+} from 'react-native';
 import {ListItem} from 'react-native-elements';
 import {Card} from 'react-native-paper';
 import {useFocusEffect} from '@react-navigation/native';
@@ -7,40 +16,21 @@ import UserAvatar from 'react-native-user-avatar';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import styles from './patientStyles/MyPatientStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {logger} from 'react-native-logs';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchPatients} from '../../redux/actions/patient/PatientActions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface Props {
   navigation: any;
 }
-const defaultConfig = {
-  levels: {
-    debug: 0,
-    info: 1,
-    warn: 2,
-    error: 3,
-  },
-  transportOptions: {
-    colors: {
-      debug: 'greenBright',
-      info: 'blueBright',
-      warn: 'yellowBright',
-      error: 'redBright',
-    },
-  },
-};
-
-let log = logger.createLogger(defaultConfig);
 const Mypatient: React.FC<Props> = ({navigation}: Props) => {
-
-  log.info('load');
   const [data, _datastate] = React.useState([]);
   const [refresh, refeereshstate] = React.useState(false);
 
   const dispatch = useDispatch();
   const fetchpatients = async () => {
     let user_id = await AsyncStorage.getItem('user_id');
+    dispatch(fetchPatients(user_id));
     refeereshstate(false);
   };
 
@@ -133,7 +123,7 @@ const Mypatient: React.FC<Props> = ({navigation}: Props) => {
       {data.length === 0 && (
         <View style={styles.imgView}>
           <Image
-            source={require('../../../assets/images/nopatients.png')}
+            source={require('../../../assests/images/nopatients.png')}
             style={styles.img}
             resizeMode="contain"></Image>
         </View>

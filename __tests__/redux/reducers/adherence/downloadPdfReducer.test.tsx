@@ -33,7 +33,7 @@ describe('test AdminCustomerReducer', () => {
   });
   it('should check for authentication success', () => {
       expect(
-    downloadPdfReducer(initialState, {
+         downloadPdfReducer(initialState, {
               type: Types.SUCCESS_PDF_DOWNLOAD,
               payload: { status: 'success' },
           }),

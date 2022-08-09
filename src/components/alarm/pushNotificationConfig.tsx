@@ -1,25 +1,7 @@
 import PushNotification from 'react-native-push-notification';
-import {logger} from 'react-native-logs';
+import Logger from '../logger';
 
-const defaultConfig = {
-  levels: {
-    debug: 0,
-    info: 1,
-    warn: 2,
-    error: 3,
-  },
-  transportOptions: {
-    colors: {
-      debug: 'greenBright',
-      info: 'blueBright',
-      warn: 'yellowBright',
-      error: 'redBright',
-    },
-  },
-};
-
-let log = logger.createLogger(defaultConfig);
-let Sound = require('react-native-sound');
+var Sound = require('react-native-sound');
 
 function PlaySound() {
   Sound.setCategory('Alarm');
@@ -30,7 +12,7 @@ function PlaySound() {
     whoosh.setNumberOfLoops(0);
     whoosh.play((success: any) => {
       if (success) {
-        log.info('successfully finished playing');
+        Logger.loggerInfo('successfully finished playing');
       }
     });
   });
@@ -92,7 +74,7 @@ const generatenotificationforcaretaker = (
       soundName: 'default',
       vibrate: true,
     },
-    created => log.info(`createChannel returned '${created}'`),
+    created => Logger.loggerInfo(`createChannel returned '${created}'`),
   );
   PushNotification.localNotificationSchedule({
     title: mssg.notification.title,

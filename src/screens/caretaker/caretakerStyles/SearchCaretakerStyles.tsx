@@ -13,5 +13,6 @@ const styles= StyleSheet.create({
         alignItems: 'center',
       },
     listButton: {backgroundColor: '#3743ab'},
+     
 });
 export default styles;

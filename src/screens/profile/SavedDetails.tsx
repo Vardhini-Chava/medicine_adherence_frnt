@@ -1,8 +1,11 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Text, View} from 'react-native';
 import styles from './profileStyles/ProfileStyles';
 import {useFocusEffect} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import OctIcon from 'react-native-vector-icons/Octicons';
 import IonIcon from 'react-native-vector-icons/Ionicons';
@@ -20,7 +23,20 @@ const SavedDetails = () => {
   useFocusEffect(() => {
     async function getuserdetail() {
       let sbio = await AsyncStorage.getItem('bio');
-      
+      let scontact = await AsyncStorage.getItem('contact');
+      let sage = await AsyncStorage.getItem('age');
+      let sweight = await AsyncStorage.getItem('weight');
+      let sgender = await AsyncStorage.getItem('gender');
+      let maritalstatus = await AsyncStorage.getItem('maritalstatus');
+      let sblood = await AsyncStorage.getItem('bloodgroup');
+
+      biostate(sbio);
+      contactstate(scontact);
+      agestate(sage);
+      weightstate(sweight);
+      genderstate(sgender);
+      msstate(maritalstatus);
+      bloodstate(sblood);
     }
 
     getuserdetail();

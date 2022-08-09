@@ -1,11 +1,7 @@
-import Enzyme, { render } from "enzyme";
-import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-import { Provider } from "react-redux";
 import React from "react";
-import enableHooks from "jest-react-hooks-shallow";
+import {Alert} from 'react-native'
 import renderer from 'react-test-renderer';
-import toJson from "enzyme-to-json";
-import ProfileHeader from "../../src/components/ProfileHeader";
+import enableHooks from "jest-react-hooks-shallow";
 import CustomHeader from "../../src/components/customHeader";
 enableHooks(jest);
 jest.mock("react-redux", () => ({
@@ -19,6 +15,7 @@ jest.mock("@react-navigation/native", () => ({
   ...jest.requireActual("@react-navigation/native"),
   useFocusEffect: jest.fn(),
 }));
+
 describe('Click send image', () => {
     it('renders correctly', () => {
       const tree = renderer

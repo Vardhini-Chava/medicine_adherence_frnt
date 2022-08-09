@@ -40,7 +40,7 @@ exports[`Settings Screen renders correctly 1`] = `
         >
           <View
             accessible={false}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -146,7 +146,7 @@ exports[`Settings Screen renders correctly 1`] = `
         >
           <View
             accessible={false}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -208,7 +208,7 @@ exports[`Settings Screen renders correctly 1`] = `
           </View>
           <View
             accessible={false}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}

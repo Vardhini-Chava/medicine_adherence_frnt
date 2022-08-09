@@ -5,7 +5,7 @@ import CameraScreen from '../../../src/screens/adherence/ClickSendImage';
 describe('Click send image', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<CameraScreen _navigation={undefined} />)
+      .create(<CameraScreen navigation={undefined} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

@@ -7,9 +7,5 @@ describe('Settings Screen', () => {
     const tree = create(<Settings navigation={undefined}/>);
     expect(tree).toMatchSnapshot();
   });
-  it('checks for button', async () => {
-    const  findByTestId = 
-  create(<Settings navigation={undefined}/>);
-    expect(findByTestId).toBeTruthy();
-  });
+  
 });

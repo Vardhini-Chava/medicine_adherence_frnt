@@ -1,21 +1,23 @@
+/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import Mypatient from './MyPatients';
 import Patientrequest from './PatientRequest';
 import {Tab, TabView} from 'react-native-elements';
 import styles from './patientStyles/PatientStyles';
+
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 const Patientcomp = ({navigation}) => {
-const [index, setIndex] = React.useState(0);
-const Iconcomp1 = () => {
+  const [index, setIndex] = React.useState(0);
+  const Iconcomp1 = () => {
     return (
       <Icon
         style={styles.icon}
         color="#3743ab"
         name='hospital-user'
-></Icon>
-);
-};
+       ></Icon>
+    );
+  };
 
   const Iconcomp2 = () => {
     return (
@@ -39,11 +41,13 @@ const Iconcomp1 = () => {
           title="My Patients"
           containerStyle={styles.tabItem}
           titleStyle={styles.tabTitle}
+          icon={Iconcomp1}
         />
         <Tab.Item
           title="Patient Request"
           titleStyle={styles.tabTitle}
           containerStyle={styles.tabItem}
+          icon={Iconcomp2}
         />
       </Tab>
 

@@ -1,12 +1,23 @@
-import {Image,Modal,ScrollView,TouchableOpacity,View,LogBox} from 'react-native';
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-bitwise */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
+import {
+  Image,
+  Modal,
+  ScrollView,
+  TouchableOpacity,
+  View,
+  LogBox,
+} from 'react-native';
 import {API_URL} from '../../repositories/var';
 import React, {useState, useEffect} from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useFocusEffect} from '@react-navigation/native';
 import {Button, Text} from 'react-native-elements';
-import {logger} from 'react-native-logs';
 import * as Progress from 'react-native-progress';
+import { useRoute } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 import Share from 'react-native-share';
 import queryData from '../../repositories/database/queryData';
@@ -14,34 +25,20 @@ import globalDb from '../../repositories/database/globalDb';
 import styles from './adherenceStyles/SendImageToCareTakerStyles';
 import {useDispatch} from 'react-redux';
 import fetchCaretakers from '../../redux/actions/caretaker/CaretakerActions';
+import Logger from '../../components/logger';
 LogBox.ignoreLogs(['Require cycle:']);
 interface Props {
   route: any;
   navigation: any;
 }
-const defaultConfig = {
-  levels: {
-    debug: 0,
-    info: 1,
-    warn: 2,
-    error: 3,
-  },
-  transportOptions: {
-    colors: {
-      debug: 'greenBright',
-      info: 'blueBright',
-      warn: 'yellowBright',
-      error: 'redBright',
-    },
-  },
-};
 
-let log = logger.createLogger(defaultConfig);
 const db = globalDb();
 let medName = '';
 let medId: number = 0;
-const SendImageToCaretaker = ({route, navigation}) => {
-  const {image_uri} = route.params;
+const SendImageToCaretaker = ({navigation}) => {
+  const route=useRoute();
+  const image_uri = route.params;
+ // const {image_uri} = route.params;
   const [mycaretakers, mycaretakerstate] = useState([]);
   const [send_to, send_to_state] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
@@ -120,7 +117,7 @@ const SendImageToCaretaker = ({route, navigation}) => {
     fetchcaretakers();
   }, []);
   const renderitem = ({item}) => {
-    log.info(item.patientId, 'b');
+    Logger.loggerInfo(item.patientId);
 
     const fetchMedicines = async () => {
       db.transaction(async txn => {
@@ -178,14 +175,14 @@ const SendImageToCaretaker = ({route, navigation}) => {
       );
     }
     const formdata = new FormData();
-    let dt = new Date().getTime();
+    var dt = new Date().getTime();
 
     let patientName = await AsyncStorage.getItem('user_name');
 
-    let file_name = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
+    var file_name = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
       /[xy]/g,
       function (c) {
-        let r = (dt + Math.random() * 16) % 16 | 0;
+        var r = (dt + Math.random() * 16) % 16 | 0;
         dt = Math.floor(dt / 16);
         return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
       },

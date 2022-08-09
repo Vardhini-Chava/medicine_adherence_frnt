@@ -1,59 +1,49 @@
-import {FlatList,RefreshControl,View,TouchableOpacity,Image} from 'react-native';
-import React, {useState} from 'react';
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
+import {
+  FlatList,
+  RefreshControl,
+  View,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import React, {useEffect} from 'react';
 import {Button, ListItem, SpeedDial} from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Card} from 'react-native-paper';
-import {logger} from 'react-native-logs';
 import UserAvatar from 'react-native-user-avatar';
 import {useDispatch, useSelector} from 'react-redux';
 import fetchCaretakers from '../../redux/actions/caretaker/CaretakerActions';
 import styles from './caretakerStyles/CaretakerComStyles';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useFocusEffect} from '@react-navigation/native';
-import {CaretakerSelectors} from '../../redux/selectors/CaretakerSelectors';
+import Logger from '../../components/logger';
 
 interface Props {
   navigation: any;
 }
-const defaultConfig = {
-  levels: {
-    debug: 0,
-    info: 1,
-    warn: 2,
-    error: 3,
-  },
-  transportOptions: {
-    colors: {
-      debug: 'greenBright',
-      info: 'blueBright',
-      warn: 'yellowBright',
-      error: 'redBright',
-    },
-  },
-};
-
-let log = logger.createLogger(defaultConfig);
 const Addcaretaker: React.FC<{navigation}> = Props => {
   const {navigation} = Props;
+  const caretakers = useSelector(
+    state => state.CareTakerReducer.userCaretakerList,
+  );
+  const {load} = useSelector(state => state.CareTakerReducer);
+  Logger.loggerInfo(load);
+  const [refresh, refeereshstate] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
-  const [refresh, setRefresh] = useState(false);
-  const [isLoad, setLoad] = useState(true);
-  const response = useSelector(CaretakerSelectors.caretaker);
-  useFocusEffect(
-    React.useCallback(() => {
-      caretaker();
-    }, []),
-  );
-  const caretaker = async () => {
+  const fetchcaretakers = async () => {
     let user_id = await AsyncStorage.getItem('user_id');
     dispatch(fetchCaretakers(user_id));
-    setLoad(false);
-    setRefresh(false);
+    refeereshstate(false);
   };
+
+  useEffect(() => {
+    fetchcaretakers();
+  }, []);
   const renderitem = ({item}) => {
-    log.info(item.patientId, 'b');
+    Logger.loggerInfo(item.patientId);
+
     return (
       <Card
         onPress={() => {
@@ -74,6 +64,7 @@ const Addcaretaker: React.FC<{navigation}> = Props => {
                 {' Accepted on : ' + item.createdAt}
               </ListItem.Subtitle>
             </ListItem.Content>
+
             <TouchableOpacity
               onPress={() => {
                 /* do nothing */
@@ -93,17 +84,17 @@ const Addcaretaker: React.FC<{navigation}> = Props => {
     <React.Fragment>
       <View style={styles.container}>
         <FlatList
-          data={response}
+          data={caretakers}
           renderItem={renderitem}
           refreshControl={
             <RefreshControl
               refreshing={refresh}
-              ></RefreshControl>
+              onRefresh={fetchcaretakers}></RefreshControl>
           }></FlatList>
-        {isLoad && (
+        {load && (
           <View style={styles.imgView}>
             <Image
-              source={require('../../../assets/images/nocaretakers.jpg')}
+              source={require('../../../assests/images/nocaretakers.jpg')}
               style={styles.img}
               resizeMode="contain"></Image>
           </View>

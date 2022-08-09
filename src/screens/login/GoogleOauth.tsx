@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-native/no-inline-styles */
 import {View} from 'react-native';
 import React from 'react';
-import {GoogleSignin,GoogleSigninButton,} from '@react-native-google-signin/google-signin';
-import {logger} from 'react-native-logs';
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+} from '@react-native-google-signin/google-signin';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Progress from 'react-native-progress';
 import Toast from 'react-native-toast-message';
@@ -9,30 +13,15 @@ import messaging from '@react-native-firebase/messaging';
 import checkConnectivity from '../../connection/checkConnectivity';
 import LottieView from 'lottie-react-native';
 import {Text} from 'react-native-elements';
+import { Signupuser } from '../../redux/apis/access';
 import styles from './loginStyles/GoogleAuthStyles';
+import Logger from '../../components/logger';
 
 interface Props {
   navigation: any;
 }
-const defaultConfig = {
-  levels: {
-    debug: 0,
-    info: 1,
-    warn: 2,
-    error: 3,
-  },
-  transportOptions: {
-    colors: {
-      debug: 'greenBright',
-      info: 'blueBright',
-      warn: 'yellowBright',
-      error: 'redBright',
-    },
-  },
-};
 
-let log = logger.createLogger(defaultConfig);
-let Login: React.FC<{navigation: any}> = Props => {
+const Login: React.FC<{navigation}> = Props => {
   const {navigation} = Props;
   const [loading, loadingstate] = React.useState(false);
   const [_connected, connectedstate] = React.useState(false);
@@ -53,9 +42,10 @@ let Login: React.FC<{navigation: any}> = Props => {
       await GoogleSignin.hasPlayServices();
       const userinfo = await GoogleSignin.signIn();
       const token = await messaging().getToken();
-      log.info(userinfo);
+      Logger.loggerInfo(userinfo);
       loadingstate(true);
-      const res: any = Response;
+      const response = await Signupuser.signup({userinfo, token});
+      const res: any = await response.json();
 
       if (res.status === 'Success') {
         await AsyncStorage.setItem('user_id', res.userEntity[0].userId);
@@ -95,7 +85,7 @@ let Login: React.FC<{navigation: any}> = Props => {
       <Text style={styles.createText}>Create an account</Text>
       <LottieView
         style={styles.lottie}
-        source={require('../../../assets/animate/google.json')}
+        source={require('../../../assests/animate/google.json')}
         autoPlay
         loop
       />
@@ -106,8 +96,8 @@ let Login: React.FC<{navigation: any}> = Props => {
         color={GoogleSigninButton.Color.Dark}
         onPress={() =>
           onGoogleButtonPress()
-            .then(() => log.info('Google'))
-            .catch(err => log.error(err))
+            .then(() => Logger.loggerInfo('Google'))
+            .catch(err => Logger.loggerError(err))
         }
       />
 

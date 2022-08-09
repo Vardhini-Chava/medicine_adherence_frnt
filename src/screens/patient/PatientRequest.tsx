@@ -1,49 +1,32 @@
+/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import {View, FlatList, Image, RefreshControl} from 'react-native';
 import {Card} from 'react-native-paper';
-import {logger} from 'react-native-logs';
 import {Avatar, ListItem, Button} from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {API_URL} from '../../repositories/var';
 import {useFocusEffect} from '@react-navigation/native';
 import styles from './patientStyles/PatientRequestStyles';
+import Logger from '../../components/logger';
 
-const defaultConfig = {
-  levels: {
-    debug: 0,
-    info: 1,
-    warn: 2,
-    error: 3,
-  },
-  transportOptions: {
-    colors: {
-      debug: 'greenBright',
-      info: 'blueBright',
-      warn: 'yellowBright',
-      error: 'redBright',
-    },
-  },
-};
-
-let log = logger.createLogger(defaultConfig);
-let Patientrequest = () => {
+const Patientrequest = () => {
   const [patients, patientsdata] = React.useState([]);
-  const [refresh, refeereshstate] = React.useState(false);
+  const [refresh, refreshstate] = React.useState(false);
   const fetchpatientreq = async () => {
     const user_id = await AsyncStorage.getItem('user_id');
     fetch(`${API_URL}/api/v1/patient/requests?userId=${user_id}`)
       .then(res => res.json())
       .then(resp => {
-        log.info(resp);
+        Logger.loggerInfo(resp);
         if (resp.status === 'failed') {
           patientsdata([]);
-          refeereshstate(false);
+          refreshstate(false);
           return;
         }
         patientsdata(resp.userCaretakerList);
       })
       .catch(() => {
-        refeereshstate(false);
+        refreshstate(false);
       });
   };
 
@@ -62,10 +45,10 @@ let Patientrequest = () => {
 
     fetch(url, {method: 'PUT'})
       .then(res => {
-        log.info(res);
+       Logger.loggerInfo(res);
         fetchpatientreq();
       })
-      .catch(err => log.error(err));
+      .catch(err => Logger.loggerError(err));
   };
   const deletereq = (ci_id: string) => {
     let url: any = new URL(`${API_URL}/api/v1/delete`);
@@ -73,10 +56,10 @@ let Patientrequest = () => {
 
     fetch(url)
       .then(res => {
-        log.info(res);
+       Logger.loggerInfo(res);
         fetchpatientreq();
       })
-      .catch(err => log.error(err));
+      .catch(err => Logger.loggerError(err));
   };
   return (
     <View style={styles.container}>
@@ -119,7 +102,7 @@ let Patientrequest = () => {
                     }}
                     title="Confirm"
                     buttonStyle={styles.confirmButton}
-                    ></Button>
+                    color="#4267B2"></Button>
                   <View style={styles.space} />
                   <Button
                     onPress={() => {
@@ -127,7 +110,7 @@ let Patientrequest = () => {
                     }}
                     title="Delete"
                     buttonStyle={styles.deleteButton}
-                  ></Button>
+                    color="#e53935"></Button>
                 </View>
               </View>
             </View>

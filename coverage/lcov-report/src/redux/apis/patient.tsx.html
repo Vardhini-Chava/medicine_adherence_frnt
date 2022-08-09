@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.69% </span>
+                <span class="strong">53.84% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/13</span>
+                <span class='fraction'>7/13</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.69% </span>
+                <span class="strong">53.84% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/13</span>
+                <span class='fraction'>7/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -92,56 +92,56 @@
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from './axios';
 import { API_URLS } from '../../constants/apiUrl';
 export const patient = {
-fetchPatient: async function <span class="fstat-no" title="function not covered" >fetchPatient(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.get(`${API_URLS.GET_PATIENT}?caretakerId=${payload}`);</span>
+ fetchPatient: async function fetchPatient(payload) {
+    const response = await axios.get(`${API_URLS.GET_PATIENT}?caretakerId=${payload}`);
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
   },
-  patientProfile: async function <span class="fstat-no" title="function not covered" >fetchpatientdetail(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.get(`${API_URLS.PATIENT_PROFILE}?userId=${payload}`);</span>
+  patientProfile: async function fetchpatientdetail(payload) {
+    const response = await axios.get(`${API_URLS.PATIENT_PROFILE}?userId=${payload}`);
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
   },
-  patientReq: async function <span class="fstat-no" title="function not covered" >fetchpatientreq(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.get(`${API_URLS.PATIENT_REQ}?userId=${payload}`);</span>
+  patientReq: async function fetchpatientreq(payload) {
+    const response = await axios.get(`${API_URLS.PATIENT_REQ}?userId=${payload}`);
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
   },
-  reqAccept: async function <span class="fstat-no" title="function not covered" >fetchpatientreqaccept(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.get(`${API_URLS.REQ_ACCEPT}`);</span>
+  reqAccept: async function fetchpatientreqaccept(payload) {
+    const response = await axios.get(`${API_URLS.REQ_ACCEPT}`);
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
   },
-  reqDelete: async function <span class="fstat-no" title="function not covered" >fetchpatientreqdelete(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.get(`${API_URLS.REQ_DELETE}`);</span>
+  reqDelete: async function fetchpatientreqdelete(payload) {
+    const response = await axios.get(`${API_URLS.REQ_DELETE}`);
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
   },
-  notifyPatient: async function <span class="fstat-no" title="function not covered" >notifypatient(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.put(`${API_URLS.NOTIFY_PATIENT}?medname=${payload}`);</span>
+  notifyPatient: async function notifypatient(payload) {
+    const response = await axios.put(`${API_URLS.NOTIFY_PATIENT}?medname=${payload}`);
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
   },
 }</pre></td></tr></table></pre>
@@ -151,7 +151,7 @@ fetchPatient: async function <span class="fstat-no" title="function not covered"
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-04T05:23:20.495Z
+                at 2022-08-08T12:01:14.216Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -1,6 +1,9 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from "react-native"
+
+
 const styles = StyleSheet.create({
-//Add a caretaker screen
+
+  //Add a caretaker screen
     container:{flex: 1, backgroundColor: 'white', height: '100%'},
     img:{width: 250},
     imgView:{position:'absolute',alignSelf:'center',top:90},
@@ -12,7 +15,9 @@ const styles = StyleSheet.create({
     sdDeleteIcon:{name: 'delete', color: 'white'},
     sdHeight:{height: 50},
     button:{backgroundColor: 'white'},
-//rendering caretakerList
+
+
+    //redering caretakerList
     cardContainer:{
         borderRadius: 20,
         margin: 6,
@@ -30,7 +35,8 @@ const styles = StyleSheet.create({
     listTitle:{fontSize: 16, marginLeft: 3, fontWeight: 'bold'},
     icon:{alignItems: 'center'},
     iconTouch:  {paddingVertical: 15},
-//caretaker component
+
+    //caretaker component
     tab:{backgroundColor: '#3743ab'},
     tabIndicator:{
       backgroundColor: '#3743ab',

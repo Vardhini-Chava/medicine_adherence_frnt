@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
 import Timeline from 'react-native-timeline-flatlist';
@@ -74,12 +75,12 @@ const HistoryDetail: React.FC<Props> = ({data, modalVisibility}) => {
         />
       </View>
       <View style={{padding: 12, alignItems: 'center'}}>
-        <Text style={{color: 'grey', fontSize: 20, fontWeight: '700'}} testID='dateText'>
-          Date - {data.date}
+        <Text style={{color: 'grey', fontSize: 20, fontWeight: '700'}} testID='dateText' >
+          Date - {data.date}  
         </Text>
       </View>
       <Timeline
-        style={{flex: 1,  marginLeft: 10}}
+        style={{flex: 1, color: 'white', marginLeft: 10}}
         data={filterData}
         circleSize={20}
         circleColor="#4dd0e1"

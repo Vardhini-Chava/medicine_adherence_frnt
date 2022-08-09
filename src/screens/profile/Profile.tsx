@@ -1,4 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+
 import React from 'react';
 import {Text, View, Image, ScrollView, Alert} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,7 +15,9 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import styles from './profileStyles/ProfileStyles';
 import SavedDetails from './SavedDetails';
+
 import {useFocusEffect} from '@react-navigation/native';
+
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import OctIcon from 'react-native-vector-icons/Octicons';
 import IonIcon from 'react-native-vector-icons/Ionicons';
@@ -113,10 +119,15 @@ const Profile = ({navigation}) => {
               [
                 {
                   text: 'Ok',
-},
+                  onPress: () => {
+                    navigation.navigate('Login');
+                  },
+                },
                 {
                   text: 'Cancel',
-                
+                  onPress: () => {
+                    navigation.navigate('Home');
+                  },
                 },
               ],
             );
@@ -129,7 +140,9 @@ const Profile = ({navigation}) => {
         } catch (err) {}
       }
       getuser();
-      
+      return () => {
+       /* do nothing */
+      };
     }, []),
   );
 

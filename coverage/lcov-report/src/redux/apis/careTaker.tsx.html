@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -91,25 +91,25 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -118,24 +118,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from './axios';
 import { API_URLS } from '../../constants/apiUrl';
 export const careTaker = {
-  emailcaretaker: async function <span class="fstat-no" title="function not covered" >name(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.get(</span>
+  emailcaretaker: async function name(payload) {
+    const response = await axios.get(
       `${API_URLS.EMAIL_CARETAKER}?email=${payload}&amp;sender={udet.user.givenName}`,
     );
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
   },
-  caretaker: async function <span class="fstat-no" title="function not covered" >fetchcaretaker(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.get(</span>
+  caretaker: async function fetchcaretaker(payload) {
+    const response = await axios.get(
       `${API_URLS.CARETAKER}?patientId=${payload}`,
     );
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
   },
-  reqCaretaker: async function <span class="fstat-no" title="function not covered" >reqcaretaker(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.get(`${API_URLS.CARETAER_REQUEST}`);</span>
+  reqCaretaker: async function reqcaretaker(payload) {
+    const response = await axios.get(`${API_URLS.CARETAER_REQUEST}`);
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
   },
-  sendImage: async function <span class="fstat-no" title="function not covered" >sendimages(</span>payload) {
-    const response = <span class="cstat-no" title="statement not covered" >await axios.post(</span>
+  sendImage: async function sendimages(payload) {
+    const response = await axios.post(
       `${API_URLS.SEND_IMAGE}?medId=${payload}`,
     );
 <span class="cstat-no" title="statement not covered" >    return response.data;</span>
@@ -148,7 +148,7 @@ export const careTaker = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-04T05:23:20.495Z
+                at 2022-08-08T12:01:14.216Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -1,6 +1,20 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
 import * as React from 'react';
-import {View,Text,TouchableOpacity,FlatList,Alert,Image} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  Alert,
+  Image,
+} from 'react-native';
+
 import Toast from 'react-native-toast-message'
+
 import ProgressCircle from 'react-native-progress-circle';
 import {Divider} from 'react-native-elements';
 import {useFocusEffect} from '@react-navigation/native';
@@ -10,7 +24,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import * as Animatable from 'react-native-animatable';
 import globalDb from '../../repositories/database/globalDb';
-
+import AdherencePercentage from '../../components/adherence/adherencePercentage';
 
 let today = new Date();
 const Medicineadherence = ({navigation}) => {
@@ -21,14 +35,14 @@ const Medicineadherence = ({navigation}) => {
   const Reminder = ({item}) => {
     let currdate = new Date();
     let click = currdate >= new Date(item.end_date);
-    const [percentage] = React.useState(0);
+    const [percentage, setpercentage] = React.useState(0);
     AdherencePercentage(
       item.start_date,
       item.days,
       item.time,
       item.current_count,
       item.medicine_name,
-    );
+    ).then(per => setpercentage(per));
     return (
       <>
         {item.status === 1 ? (
@@ -139,7 +153,7 @@ const Medicineadherence = ({navigation}) => {
               ttotaltaken += rowItem.total_med_reminders;
               res.rows.item(i).status === 1
                 ? reminder_array.push(rowItem)
-                : null;                      
+                : null;                      //NOSONAR false positive
             }
 
             if (tcurrenttaken === 0 && ttotaltaken === 0) {
@@ -166,7 +180,7 @@ const Medicineadherence = ({navigation}) => {
       const filtered_array = remdata
         .filter(reminder_item => reminder_item.status === 1)
         .map(reminder_item => {
-          return {
+          let obj = {
             medicineName: reminder_item.medicine_name,
             medicineDes: reminder_item.medicine_des,
             currentCount: reminder_item.current_count,
@@ -179,6 +193,7 @@ const Medicineadherence = ({navigation}) => {
             endDate: reminder_item.end_date,
             userId: reminder_item.user_id,
           };
+          return obj;
         });
 
       let user_id = await AsyncStorage.getItem('user_id');
@@ -228,17 +243,17 @@ const Medicineadherence = ({navigation}) => {
     }
   }
 
-  useFocusEffect(
-    React.useCallback(() => {
-      fetchallreminders().then(() => {
-        fetchallremindersandsync();
-      });
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     fetchallreminders().then(() => {
+  //       fetchallremindersandsync();
+  //     });
 
-      return () => {
-       /* do nothing */
-      };
-    }, []),
-  );
+  //     return () => {
+  //      /* do nothing */
+  //     };
+  //   }, []),
+  // );
 
   return (
     <View
@@ -325,15 +340,15 @@ const Medicineadherence = ({navigation}) => {
 
       <FlatList
         data={reminderdata}
-        renderItem={({item}) => {
+        renderItem={({item, index}) => {
           if (item.status === 1) {
-            return <Reminder item={item}></Reminder>;
+            return <Reminder item={item} index={index}></Reminder>;
           }
         }}></FlatList>
       {reminderdata.length === 0 && (
         <View style={{alignSelf: 'center'}}>
           <Image
-            source={require('../../../assets/images/noreminders.png')}
+            source={require('../../../assests/images/noreminders.png')}
             style={{width: 250}}
             resizeMode="contain"></Image>
         </View>
@@ -344,9 +359,3 @@ const Medicineadherence = ({navigation}) => {
   );
 };
 export default Medicineadherence;
-
-
-function AdherencePercentage(start_date: any, days: any, time: any, current_count: any, medicine_name: any) {
-  throw new Error('Function not implemented.');
-}
-

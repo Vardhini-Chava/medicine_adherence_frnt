@@ -1,8 +1,13 @@
+/* eslint-disable react/jsx-no-duplicate-props */
+/* eslint-disable react/self-closing-comp */
 import {createStackNavigator} from '@react-navigation/stack';
+
 import React from 'react';
+
 import AdherenceHistory from '../adherence/AdherenceHistory';
 import CameraScreen from '../adherence/ClickSendImage';
 import SendImageToCaretaker from '../adherence/SendImageToCaretaker';
+import TodayPerformance from '../adherence/TodayPerformance';
 import Reminder from '../alarm/Reminder';
 import Searchcaretaker from '../caretaker/SearchCaretaker';
 import Login from '../login/GoogleOauth';
@@ -15,7 +20,6 @@ import ViewProfile from '../patient/PatientProfile';
 import PatientReport from '../patient/PatientReport';
 import DrawerNavigator from '../../navigation/drawerNavigator';
 import UserMed from '../UserMed';
-import HomeScreen from '../HomeScreen';
 
 const Stack = createStackNavigator();
 
@@ -62,7 +66,9 @@ const Stackscreen: React.FC = () => {
           headerTitleStyle: {color: 'black', fontSize: 20},
         }}
         component={Reminder}
-        ></Stack.Screen>
+        options={{
+          headerTitleStyle: {color: 'black', fontSize: 20},
+        }}></Stack.Screen>
       {/* <Stack.Screen
         name="Events"
         options={{headerTitleStyle: {color: 'white', fontSize: 20}}}
@@ -93,7 +99,7 @@ const Stackscreen: React.FC = () => {
       <Stack.Screen
         options={{headerTintColor: 'black'}}
         name="Today Performance"
-        component={HomeScreen}></Stack.Screen>
+        component={TodayPerformance}></Stack.Screen>
       <Stack.Screen
         options={{headerTintColor: 'black'}}
         name="Adherence History"
