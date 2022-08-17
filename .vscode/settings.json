@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "aagaya",
         "acceptrequest",
         "Acceptwatcher",
         "Adatper",
@@ -39,6 +40,7 @@
         "datastate",
         "dateday",
         "datestate",
+        "deleteitem",
         "deletereq",
         "Deletewatcher",
         "Detailfun",
@@ -83,6 +85,7 @@
         "Historywatcher",
         "histoy",
         "Hitsory",
+        "Iawhn",
         "Iconcomp",
         "imagearray",
         "Imageswatcher",
@@ -129,6 +132,7 @@
         "Mypatient",
         "namestate",
         "netinfo",
+        "networkcalls",
         "newarr",
         "Nmie",
         "nocaretakers",
@@ -140,6 +144,8 @@
         "notifyuser",
         "notifywatcher",
         "nottaken",
+        "onpress",
+        "Passcode",
         "Patientcomp",
         "Patientreq",
         "Patientrequest",
@@ -195,6 +201,7 @@
         "setloadstate",
         "setpercentage",
         "setreminderwithselecteddate",
+        "Settins",
         "sgender",
         "showalldates",
         "showimgfun",
@@ -208,6 +215,7 @@
         "slecteddaysstate",
         "slectedstate",
         "Stackscreen",
+        "stackscreens",
         "Stickdb",
         "storeuserdetails",
         "SUCCES",
@@ -234,6 +242,7 @@
         "totalpercent",
         "totalpercentstate",
         "ttotaltaken",
+        "txpp",
         "txxn",
         "udet",
         "unfill",
@@ -244,6 +253,7 @@
         "Visibilityfun",
         "weightstate",
         "wojtekmaj",
-        "yxxx"
+        "yxxx",
+        "Zsyij"
     ]
 }

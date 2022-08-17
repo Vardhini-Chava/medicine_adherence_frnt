@@ -197,7 +197,22 @@
 <a name='L132'></a><a href='#L132'>132</a>
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -271,7 +286,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -332,17 +346,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import CareTaker from '../screens/caretaker/Caretaker';
-import Caretakercomp from '../screens/caretaker/CaretakerComp';
-import Patientcomp from '../screens/patient/Patient';
+import CareTaker from '../screens/caretaker/caretaker';
+import Caretakercomp from '../screens/caretaker/components/caretakerComp';
+import Patientcomp from '../screens/patient/patient';
 import CustomHeader from '../components/customHeader';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import HomeScreen from '../screens/HomeScreen';
-import Settings from '../screens/Settings';
-import CameraScreen from '../screens/adherence/ClickSendImage';
+import HomeScreen from '../screens/homeScreen';
+import Settings from '../screens/settings';
+import {
+  faHome,
+  faMedkit,
+  faPerson,
+  faUserNurse,
+  faGear,
+  faCamera,
+} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {IconProp} from '@fortawesome/fontawesome-svg-core';
+import CameraScreen from '../screens/adherence/components/clickSendImage';
 import {TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import IonIcon from 'react-native-vector-icons/Ionicons'
 &nbsp;
 const Drawer = createDrawerNavigator();
 &nbsp;
@@ -361,19 +383,19 @@ const DrawerNavigator = <span class="fstat-no" title="function not covered" >({<
           headerRight: <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >            return (</span>
               &lt;TouchableOpacity onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigation.navigate('Camera')}</span>&gt;
-                &lt;Icon
-                  name="camera"
+                &lt;FontAwesomeIcon
                   size={30}
+                  icon={faCamera as IconProp}
                   color="#3743ab"
                 /&gt;
               &lt;/TouchableOpacity&gt;
             );
           },
           drawerIcon: <span class="fstat-no" title="function not covered" >()</span> =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;Icon</span>
-              name="home"
-              size={22}
+<span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon</span>
               color="white"
+              size={22}
+              icon={faHome as IconProp}
             /&gt;
           ),
         }}
@@ -388,10 +410,10 @@ const DrawerNavigator = <span class="fstat-no" title="function not covered" >({<
           drawerInactiveTintColor: 'white',
           headerShown: true,
           drawerIcon: <span class="fstat-no" title="function not covered" >()</span> =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;Icon</span>
+<span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon</span>
               color="white"
-              size={20}
-              name="medkit"
+              size={22}
+              icon={faMedkit as IconProp}
             /&gt;
           ),
         }}
@@ -404,11 +426,10 @@ const DrawerNavigator = <span class="fstat-no" title="function not covered" >({<
           drawerActiveTintColor: 'white',
           drawerInactiveTintColor: 'white',
           drawerIcon: <span class="fstat-no" title="function not covered" >()</span> =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;IonIcon</span>
+<span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon</span>
               size={22}
               color="white"
-              name='man'
-             
+              icon={faPerson as IconProp}
             /&gt;
           ),
         }}
@@ -418,10 +439,10 @@ const DrawerNavigator = <span class="fstat-no" title="function not covered" >({<
           drawerActiveTintColor: 'white',
           drawerInactiveTintColor: 'white',
           drawerIcon: <span class="fstat-no" title="function not covered" >()</span> =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;Icon</span>
+<span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon</span>
               size={22}
               color="white"
-              name='user-md'
+              icon={faUserNurse as IconProp}
             /&gt;
           ),
         }}
@@ -437,10 +458,10 @@ const DrawerNavigator = <span class="fstat-no" title="function not covered" >({<
           drawerActiveTintColor: 'white',
           drawerInactiveTintColor: 'white',
           drawerIcon: <span class="fstat-no" title="function not covered" >()</span> =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;IonIcon</span>
+<span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon</span>
               size={22}
               color="white"
-             name='settings'
+              icon={faGear as IconProp}
             /&gt;
           ),
         }}
@@ -452,10 +473,10 @@ const DrawerNavigator = <span class="fstat-no" title="function not covered" >({<
           drawerActiveTintColor: 'white',
           drawerInactiveTintColor: 'white',
           drawerIcon: <span class="fstat-no" title="function not covered" >()</span> =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;Icon</span>
-              size={20}
+<span class="cstat-no" title="statement not covered" >            &lt;FontAwesomeIcon</span>
+              size={22}
               color="white"
-              name='camera'
+              icon={faCamera as IconProp}
             /&gt;
           ),
         }}
@@ -472,7 +493,7 @@ export default DrawerNavigator;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-08T12:01:14.216Z
+                at Wed Aug 17 2022 11:43:11 GMT+0530 (India Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
