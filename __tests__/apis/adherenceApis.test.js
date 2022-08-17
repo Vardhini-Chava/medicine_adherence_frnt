@@ -40,13 +40,5 @@ describe('test adherence apis', () => {
       _X: null,
     });
   });
-  it('test syncmedhistory', () => {
-    const payload = 'payload';
-    expect(adherence.syncmedicineHistory(payload)).toEqual({
-      _U: 0,
-      _V: 0,
-      _W: null,
-      _X: null,
-    });
-  });
+  
 });

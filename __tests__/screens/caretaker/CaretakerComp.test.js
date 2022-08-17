@@ -1,9 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import enableHooks from "jest-react-hooks-shallow";
 import Caretakercomp from '../../../src/screens/caretaker/CaretakerComp';
-import Enzyme from 'enzyme';
-import {shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
 
@@ -32,7 +30,7 @@ jest.mock("react-native-paper", () => ({
 describe('Click send image', () => {
   it('renders correctly', () => {
     
-    const wrapper  = shallow(<Caretakercomp/>).childAt(1).dive();
+    const wrapper  = shallow(<Caretakercomp/>);
     expect(wrapper).toMatchSnapshot();
   });
   

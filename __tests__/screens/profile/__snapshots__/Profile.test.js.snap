@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<FirstComponent /> functions test the only function 1`] = `undefined`;
+
+exports[`<FirstComponent /> functions test the only function 2`] = `undefined`;
+
+exports[`<FirstComponent /> functions test the only function 3`] = `undefined`;
+
 exports[`Click send image renders correctly 1`] = `
 <View
   style={

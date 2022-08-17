@@ -11,24 +11,16 @@ jest.mock("rn-fetch-blob", () => ({
 jest.mock('@react-navigation/native', () => ({
   ...jest.requireActual('@react-navigation/native'),
   useNavigation: () => ({ goBack: jest.fn() }),
+  useFocusEffect:jest.fn(),
   useRoute: () => ({
     params: {
-     medId : {},
-     medName : {},
-     mTimes : {},
-     medDays : {},
-     mstartDate : {},
-     mendDate : {},
-     mcc : {},
+     im:{}
     }
   }),
 }));
-jest.mock('@react-navigation/native', () => {
-  return {
-    useNavigation: () => ({ goBack: jest.fn() }),
-    useRoute: jest.fn(),
-  };
-});
+
+
+
 describe('Click send image', () => {
   it('renders correctly', () => {
     const tree = renderer
@@ -36,11 +28,7 @@ describe('Click send image', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('test open save button', () => {
-    const mockFn = jest.fn();
-    const wrapper = shallow(<PatientReport showDetailfun={mockFn} />);
-    wrapper.find('#detail').simulate('press');
-  });
+ 
   it('test open save button', () => {
     const mockFn = jest.fn();
     const wrapper = shallow(<PatientReport permFnc={mockFn} />);

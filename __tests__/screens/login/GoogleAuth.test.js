@@ -37,7 +37,7 @@ jest.mock("@react-native-google-signin/google-signin", () => ({
 }));
 
 describe('Click send image', () => {
-  it.only('renders correctly', () => {
+  it('renders correctly', () => {
 
     const wrapper  = shallow(<Login/>).childAt(1).dive();
     expect(toJson(wrapper)).toMatchSnapshot();

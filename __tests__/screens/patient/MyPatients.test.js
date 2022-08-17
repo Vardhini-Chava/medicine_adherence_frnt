@@ -26,14 +26,5 @@ describe('Click send image', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('test open save button', () => {
-    const mockFn = jest.fn();
-    const wrapper = shallow(<Mypatient empFnc={mockFn} />);
-    wrapper.find('#emp').simulate('press');
-  });
-  it('test open save button', () => {
-    const mockFn = jest.fn();
-    const wrapper = shallow(<Mypatient navProfile={mockFn} />);
-    wrapper.find('#pressProfile').simulate('press');
-  });
+
 });

@@ -3,7 +3,9 @@ import React from 'react';
 import SettingsList from 'react-native-settings-list';
 import styles from './screenStyles/SettingStyles';
 
-const Settings = (navigation) => {
+
+const Settings = ({navigation}) => {
+ 
   const shareFnc = () => {
     try {
       Share.share({
@@ -16,7 +18,7 @@ const Settings = (navigation) => {
     } catch (error) {}
   };
   const aboutFnc = () => {
-    navigation.navigate('About');
+    navigation?.navigate('About');
   };
   const openSetFnc = () => {
     Linking.openSettings();

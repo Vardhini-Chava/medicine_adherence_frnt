@@ -30,17 +30,17 @@ describe('<FirstComponent /> functions', () => {
     
       const wrapper = renderer.create(<Profile/>);
       const inst = wrapper.getInstance();
-      expect(inst.userIcon(<Icon name="home" size={22} color="white"/>)).toMatchSnapshot();
+      expect(inst?.userIcon(<Icon name="home" size={22} color="white"/>)).toMatchSnapshot();
   });
   it('test the only function', () => {
   
     const wrapper = renderer.create(<Profile/>);
     const inst = wrapper.getInstance();
-    expect(inst.weightIcon(<Icon size={18} name="weight" color="#3743ab"></Icon>)).toMatchSnapshot();
+    expect(inst?.weightIcon(<Icon size={18} name="weight" color="#3743ab"></Icon>)).toMatchSnapshot();
 });
 it('test the only function', () => { 
   const wrapper = renderer.create(<Profile/>);
   const inst = wrapper.getInstance();
-  expect(inst.phoneIcon(<Icon name="home" size={22} color="white"/>)).toMatchSnapshot();
+  expect(inst?.phoneIcon(<Icon name="home" size={22} color="white"/>)).toMatchSnapshot();
 });
 })

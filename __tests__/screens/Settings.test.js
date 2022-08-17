@@ -6,6 +6,23 @@ import Settings from '../../src/screens/Settings';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
 
+// jest.mock('@react-navigation/native', () => ({
+//   ...jest.requireActual('@react-navigation/native'),
+//   useFocusEffect: jest.fn(),
+//   useEffect: jest.fn(),
+//   useNavigation: () => ({ goBack: jest.fn() }),
+//   useRoute: () => ({
+//     params: {
+//      user_id: {}
+//     }
+//   }),
+// }));
+jest.mock("@react-navigation/native", () => ({
+  ...jest.requireActual("@react-navigation/native"),
+  useFocusEffect: jest.fn(),
+  // useNavigation: () => ({ goBack: jest.fn() }),
+}));
+
 describe('Settings Screen', () => {
   it('renders correctly', () => {
     const tree = renderer.create(<Settings navigation={undefined} />).toJSON();
