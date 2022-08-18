@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import React from "react";
 import configureStore from "redux-mock-store";
 import toJson from "enzyme-to-json";
-import AdherencePercentage from "../../../src/components/adherence/adherencePercentage";
 import { time_data } from "../../../src/components/alarm/timeData";
 
 Enzyme.configure({ adapter: new Adapter() });

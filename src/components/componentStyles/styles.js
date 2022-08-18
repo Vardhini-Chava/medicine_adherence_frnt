@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  //customHeaders
+  
   drawer: {height: '100%', backgroundColor: '#3743ab'},
   touch: {marginBottom: 8},
   top: {marginTop: 60, alignItems: 'center'},

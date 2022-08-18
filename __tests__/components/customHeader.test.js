@@ -2,7 +2,6 @@ import React from "react";
 import renderer from 'react-test-renderer';
 import enableHooks from "jest-react-hooks-shallow";
 import Enzyme from 'enzyme';
-import {shallow} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
 import CustomHeader from "../../src/components/customHeader";

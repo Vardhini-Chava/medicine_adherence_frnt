@@ -12,7 +12,6 @@ import Toast from 'react-native-toast-message'
 
 import ProgressCircle from 'react-native-progress-circle';
 import {Divider} from 'react-native-elements';
-import {useFocusEffect} from '@react-navigation/native';
 import * as Progress from 'react-native-progress';
 import {API_URL} from '../../repositories/var';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -38,8 +37,7 @@ const Medicineadherence = ({navigation}) => {
       item.current_count,
       item.medicine_name,
     ).then(per => setpercentage(per));
-   
-    return (
+return (
       <>
         {item.status === 1 ? (
           <View style={{}}>

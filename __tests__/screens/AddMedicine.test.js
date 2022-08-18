@@ -1,6 +1,6 @@
 import React from 'react';
-import Enzyme, { shallow } from "enzyme";
-import { render, cleanup, fireEvent } from '@testing-library/react-native';
+import Enzyme from "enzyme";
+import { cleanup } from '@testing-library/react-native';
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import renderer from 'react-test-renderer';
 import Addmedicine from '../../src/screens/AddMedicine';

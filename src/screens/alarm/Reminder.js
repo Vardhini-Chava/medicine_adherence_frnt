@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {View, Text, ScrollView, Alert} from 'react-native';
 import {Button} from 'react-native-elements';
 import {Divider} from 'react-native-elements/dist/divider/Divider';
-import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -15,8 +14,7 @@ import EntypoIcon from 'react-native-vector-icons/Entypo';
 
 import {TextInput} from 'react-native-paper';
 import CheckBox from 'react-native-check-box';
-import MultiSlider from '@ptomasroos/react-native-multi-slider';
-import DateTimePicker from 'react-native-modal-datetime-picker'; //NOSONAR false positive
+import MultiSlider from '@ptomasroos/react-native-multi-slider'; 
 import globalDb from '../../repositories/database/globalDb';
 import styles from './alarmStyles/ReminderStyles';
 import Logger from '../../components/logger';
@@ -90,8 +88,6 @@ const Reminder = ({navigation}) => {
     var now = new Date();
 
     now.setDate(start_date.getDate());
-
-    //Logger.loggerInfo(now.getDate(), now.getHours(), now.getTime());
     Logger.loggerInfo(new Date(Date.now()));
     Logger.loggerInfo(now);
     let sample_date = new Date(start_date);
@@ -142,7 +138,7 @@ const Reminder = ({navigation}) => {
 
           now.setHours(timm_array[0]);
           now.setMinutes(timm_array[1]);
-          // Logger.loggerInfo(now, ' ', now.getHours(), ' ', weeks[now.getDay()]);
+        
 
           let num1 = Math.floor(Math.random() * 90000) + 10000;
 
@@ -218,7 +214,7 @@ const Reminder = ({navigation}) => {
   };
 
   const savereminder = () => {
-    //NOSONAR
+  
     if (
       multiSliderValue[0] === 0 ||
       title.length === 0 ||
@@ -256,14 +252,13 @@ const Reminder = ({navigation}) => {
           days += selecteddaysItems[i] + ':';
         }
       }
-      // Logger.loggerInfo({time, days});
+  
     } else if (check1) {
       days += 'Everyday';
       slecteddaysstate(['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']);
     }
     setreminderwithselecteddate(title);
 
-    //Logger.loggerInfo('date', store_end_date.toISOString(), ' total_meds ' + counter);
     db.transaction(function (txn) {
       txn.executeSql(
         'CREATE TABLE IF NOT EXISTS User_medicines(user_id INTEGER PRIMARY KEY NOT NULL, medicine_name TEXT, medicine_des TEXT , title TEXT, time TEXT , days TEXT , start_date TEXT , end_date TEXT , status INTEGER , sync INTEGER, total_med_reminders INTEGER , current_count INTEGER)',
@@ -296,7 +291,7 @@ const Reminder = ({navigation}) => {
       });
     });
 
-    //  Logger.loggerInfo(selectedItems, selecteddaysItems);
+  
   };
   const pickerFnc = () => {
     Logger.loggerInfo('p');
@@ -334,19 +329,6 @@ const Reminder = ({navigation}) => {
               size={16}></Icon>
           </TouchableOpacity>
           <Divider></Divider>
-          <DateTimePicker
-            isVisible={picker}
-            mode="date"
-            minimumDate={new Date()}
-            onConfirm={handleConfirm}
-            onCancel={hideDatePicker}
-          />
-          <DateTimePickerModal
-            isVisible={time_picker_mode}
-            mode="time"
-            onConfirm={handleConfirmfortime}
-            onCancel={hideDatePickerfortime}
-          />
           <Text style={styles.title} testID="titleText">
             Add Title
           </Text>

@@ -1,6 +1,5 @@
 import {API_URL} from '../../repositories/var';
 import RNFetchBlob from 'rn-fetch-blob';
-import {logger} from 'react-native-logs';
 import Logger from '../logger';
 
 const {config} = RNFetchBlob;
@@ -15,7 +14,7 @@ const DownloadPdf = async (globalmedId) => {
   const options = {
     fileCache: true,
     addAndroidDownloads: {
-      useDownloadManager: true, // true will use native manager and be shown on notification bar.
+      useDownloadManager: true, 
       notification: true,
       path: downloadPath,
       description: 'Downloading your report',

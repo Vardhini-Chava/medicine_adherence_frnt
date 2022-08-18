@@ -1,26 +1,14 @@
 import React from 'react';
-import Enzyme from 'enzyme';
-import {shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Settings from '../../src/screens/Settings';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
 
-// jest.mock('@react-navigation/native', () => ({
-//   ...jest.requireActual('@react-navigation/native'),
-//   useFocusEffect: jest.fn(),
-//   useEffect: jest.fn(),
-//   useNavigation: () => ({ goBack: jest.fn() }),
-//   useRoute: () => ({
-//     params: {
-//      user_id: {}
-//     }
-//   }),
-// }));
 jest.mock("@react-navigation/native", () => ({
   ...jest.requireActual("@react-navigation/native"),
   useFocusEffect: jest.fn(),
-  // useNavigation: () => ({ goBack: jest.fn() }),
+
 }));
 
 describe('Settings Screen', () => {

@@ -81,7 +81,7 @@ exports[`Click send image renders correctly 1`] = `
                   }
                 }
               >
-                2022-08-17
+                2022-08-18
               </Text>
               <Text
                 style={
@@ -105,7 +105,7 @@ exports[`Click send image renders correctly 1`] = `
                   }
                 }
               >
-                2022-08-17
+                2022-08-18
               </Text>
             </View>
             <Text
@@ -141,22 +141,6 @@ exports[`Click send image renders correctly 1`] = `
               "borderBottomWidth": 0.5,
             }
           }
-        />
-        <Modal
-          animationType="none"
-          hardwareAccelerated={false}
-          isVisible={false}
-          onHide={[Function]}
-          transparent={true}
-          visible={false}
-        />
-        <Modal
-          animationType="none"
-          hardwareAccelerated={false}
-          isVisible={false}
-          onHide={[Function]}
-          transparent={true}
-          visible={false}
         />
         <Text
           style={
