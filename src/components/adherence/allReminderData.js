@@ -2,6 +2,7 @@ import globalDb from '../../repositories/database/globalDb';
 import Logger from '../logger';
 
 const db = globalDb();
+
 const allreminderdata = async (med_name) => {
   let reminder_obj;
   let map = new Map();

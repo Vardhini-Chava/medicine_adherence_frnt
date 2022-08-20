@@ -18,6 +18,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchPatients} from '../../redux/actions/patient/PatientActions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 const Mypatient = navigation => {
   const patients = useSelector(state => state.PatientReducer.patientList);
   const load = useSelector(state => state.PatientReducer.patientList);
@@ -75,6 +76,7 @@ const Mypatient = navigation => {
   const empFnc = () => {
     /* do nothing */
   };
+  
   const renderitem = ({item}) => {
     return (
       <Card id="pressProfile" onPress={() => navProfile} style={styles.card}>
@@ -121,7 +123,7 @@ const Mypatient = navigation => {
       {data.length === 0 && (
         <View style={styles.imgView}>
           <Image
-            source={require('../../../assests/images/nopatients.png')}
+            source={require('../../../src/assests/images/nopatients.png')}
             style={styles.img}
             resizeMode="contain"></Image>
         </View>

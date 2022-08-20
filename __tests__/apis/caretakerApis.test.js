@@ -1,4 +1,4 @@
-import {careTaker} from '../../src/redux/apis/careTaker';
+import {careTaker} from '../../src/repositories/apis/careTaker';
 
 describe('test caretaker apis', () => {
   it('test caretaker', () => {

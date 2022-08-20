@@ -407,7 +407,7 @@ const defaultConfig = {
 &nbsp;
 let log = logger.createLogger(defaultConfig);
 const CustomHeader = props =&gt; {
-   /* istanbul ignore next */
+   
   React.useEffect(() =&gt; {
     GoogleSignin.configure({
       webClientId:
@@ -415,7 +415,7 @@ const CustomHeader = props =&gt; {
     });
   });
   const [loggedin, loggedinstate] = React.useState(true);
-  /* istanbul ignore next */
+  
   async function getuser() {
     try {
       const isllooged = await GoogleSignin.isSignedIn();
@@ -432,13 +432,13 @@ const CustomHeader = props =&gt; {
       loggedinstate(false);
     } catch (err) {}
   } 
-  /* istanbul ignore next */
+
   useEffect(() =&gt; {
     return props.navigation.addListener('focus', () =&gt; {
       getuser();
     });
   }, [props.navigation]);
-  /* istanbul ignore next */
+ 
   useFocusEffect(() =&gt; { 
     log.info('f');
     getuser();
@@ -448,7 +448,7 @@ const CustomHeader = props =&gt; {
       &lt;DrawerContentScrollView style={styles.drawer}&gt;
         &lt;TouchableOpacity
           style={styles.touch}
-          onPress={ /* istanbul ignore next */() =&gt; props.navigation.getParent().navigate('Profile')}&gt;
+          onPress={> () =&gt; props.navigation.getParent().navigate('Profile')}&gt;
           {&lt;ProfileHeader&gt;&lt;/ProfileHeader&gt;}
         &lt;/TouchableOpacity&gt;
         &lt;DrawerItemList {...props}&gt;&lt;/DrawerItemList&gt;
@@ -464,7 +464,7 @@ const CustomHeader = props =&gt; {
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonTitle}
                 containerStyle={styles.buttonContainer}
-                onPress={<span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {/* istanbul ignore next */
+                onPress={<span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {
                   props.navigation.navigate('Sign-up');
                 }}
               /&gt;
@@ -476,7 +476,7 @@ const CustomHeader = props =&gt; {
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonTitle}
                 containerStyle={styles.buttonContainer}
-                onPress={<span class="fstat-no" title="function not covered" >as</span>ync () =&gt; { /* istanbul ignore next */
+                onPress={<span class="fstat-no" title="function not covered" >as</span>ync () =&gt; { 
                   props.navigation.navigate('Login');
                 }}
               /&gt;
@@ -489,7 +489,7 @@ const CustomHeader = props =&gt; {
               buttonStyle={styles.button}
               titleStyle={styles.buttonLogOutTitle}
               containerStyle={styles.buttonContainer}
-              onPress={<span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {/* istanbul ignore next */
+              onPress={<span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {
                 Alert.alert('Do you want to Logout?', '', [
                   {
                     text: 'Logout',

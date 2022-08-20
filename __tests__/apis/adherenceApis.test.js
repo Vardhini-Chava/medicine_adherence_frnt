@@ -1,4 +1,4 @@
-import adherence from '../../src/redux/apis/adherence';
+import adherence from '../../src/repositories/apis/adherence';
 describe('test adherence apis', () => {
   it('test medimages', () => {
     const payload = 'payload';

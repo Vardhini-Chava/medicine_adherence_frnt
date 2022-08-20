@@ -18,7 +18,7 @@ import allreminderdata from '../../components/adherence/allReminderData';
 import queryData from '../../repositories/database/queryData';
 import * as Progress from 'react-native-progress';
 import LottieView from 'lottie-react-native';
-import adherence from '../../redux/apis/adherence';
+import adherence from '../../repositories/apis/adherence';
 import downloadPdf from '../../components/adherence/downloadPdf';
 import MedicinehistoryList from '../../components/organisms/medicineHistoryList';
 import globalDb from '../../repositories/database/globalDb';
@@ -30,6 +30,7 @@ let globalmedId;
 LogBox.ignoreLogs(['Require cycle:']);
 LogBox.ignoreAllLogs();
 let db;
+
 const AdherenceHistory = () => {
   const [pickerValue, setPickerValue] = React.useState();
   const [allreminders, reminders_state] = React.useState([]);
@@ -189,7 +190,7 @@ const AdherenceHistory = () => {
             <LottieView
               style={{width: 70, height: 70}}
               speed={0.8}
-              source={require('../../../assests/animate/generatepdf.json')}
+              source={require('../../../src/assests/animate/generatepdf.json')}
               autoPlay
               loop
             />

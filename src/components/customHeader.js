@@ -14,6 +14,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './componentStyles/styles';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Logger from './logger';
+
+
 const CustomHeader = props => {
    
   React.useEffect(() => {

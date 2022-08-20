@@ -15,6 +15,7 @@ import styles from './screenStyles/UserMedStyles';
 import {useRoute} from '@react-navigation/native';
 import Logger from '../components/logger';
 
+
 async function createdb() {
   let first = await AsyncStorage.getItem('first');
   if (first === null) {
@@ -32,6 +33,7 @@ async function createdb() {
   const db = globalDb();
   return db;
 }
+
 const UserMed = (navigation) => {
   const route = useRoute();
   const id = route.params;

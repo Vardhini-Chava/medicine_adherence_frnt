@@ -29,7 +29,7 @@ const CameraScreen = ({navigation}) => {
           style={styles.image}>
           <LottieView
             style={styles.lottieAnimation}
-            source={require('../../../assests/animate/camera1.json')}
+            source={require('../../../src/assests/animate/camera1.json')}
             autoPlay
             loop></LottieView>
         </TouchableOpacity>

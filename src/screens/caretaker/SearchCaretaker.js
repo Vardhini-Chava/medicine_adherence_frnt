@@ -12,6 +12,7 @@ import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import Toast from 'react-native-toast-message';
 import Logger from '../../components/logger';
 
+
 const Searchcaretaker = ({navigation}) => {
   const [data, datastate] = React.useState([]);
   const [searchload, searchloadstate] = React.useState(false);
@@ -145,7 +146,7 @@ const Searchcaretaker = ({navigation}) => {
       {data.length === 0 && (
         <View style={styles.imgContainer}>
           <Image
-            source={require('../../../assests/images/searchcaretaker.png')}
+            source={require('../../../src/assests/images/searchcaretaker.png')}
             style={styles.img}
             resizeMode="stretch"></Image>
         </View>

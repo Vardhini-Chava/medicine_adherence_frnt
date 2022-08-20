@@ -1,4 +1,4 @@
-import { patient } from '../../src/redux/apis/patient';
+import { patient } from '../../src/repositories/apis/patient';
 
 describe('test patient apis', () => {
   it('test fetchPatient', () => {

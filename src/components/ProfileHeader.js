@@ -5,6 +5,7 @@ import {View, Text, Image} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './componentStyles/styles';
 
+
 const ProfileHeader = () => {
   const [umg, imgstate] = React.useState('https://i.stack.imgur.com/l60Hf.png');
   const [name, namestate] = React.useState('');

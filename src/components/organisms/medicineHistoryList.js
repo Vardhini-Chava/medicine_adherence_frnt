@@ -5,6 +5,8 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../../screens/adherence/adherenceStyles/MedicineHistoryListStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+const db="san";
+
 const MedicinehistoryList = props => {
   const {item, showimgfun, medName} = props;
   return (

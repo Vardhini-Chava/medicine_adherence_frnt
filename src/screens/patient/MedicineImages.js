@@ -18,6 +18,7 @@ import Logger from '../../components/logger';
 LogBox.ignoreAllLogs();
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.84);
+
 const CarouselCardItem = ({item}) => {
   const [load, setload] = useState(true);
  Logger.loggerInfo(item);
@@ -116,7 +117,7 @@ const MedicineImages = ({}) => {
       {imageData.length === 0 ? (
         <View style={styles.imgView}>
           <Image
-            source={require('../../../assests/images/noImages.png')}
+            source={require('../../../src/assests/images/noImages.png')}
             style={styles.img}
             resizeMode="contain"></Image>
         </View>

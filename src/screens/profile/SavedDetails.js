@@ -9,6 +9,8 @@ import OctIcon from 'react-native-vector-icons/Octicons';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import EntIcon from 'react-native-vector-icons/Entypo';
 
+const bio="";
+
 const SavedDetails = () => {
   const [bio, biostate] = React.useState('');
   const [contact, contactstate] = React.useState('');

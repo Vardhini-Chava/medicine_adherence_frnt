@@ -16,6 +16,7 @@ import styles from './caretakerStyles/CaretakerComStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Logger from '../../components/logger';
 
+
 const Addcaretaker = navigation => {
   const caretakers = useSelector(
     state => state.CareTakerReducer.userCaretakerList,

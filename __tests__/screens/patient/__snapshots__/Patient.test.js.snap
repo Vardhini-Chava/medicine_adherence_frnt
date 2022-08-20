@@ -422,7 +422,7 @@ Array [
               resizeMode="contain"
               source={
                 Object {
-                  "testUri": "../../../assests/images/nopatients.png",
+                  "testUri": "../../../src/assests/images/nopatients.png",
                 }
               }
               style={
@@ -562,7 +562,7 @@ Array [
               resizeMode="contain"
               source={
                 Object {
-                  "testUri": "../../../assests/images/nopatientreq.png",
+                  "testUri": "../../../src/assests/images/nopatientreq.png",
                 }
               }
               style={

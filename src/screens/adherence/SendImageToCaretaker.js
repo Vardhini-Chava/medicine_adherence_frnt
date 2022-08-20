@@ -25,6 +25,7 @@ LogBox.ignoreLogs(['Require cycle:']);
 const db = globalDb();
 let medName = '';
 let medId = 0;
+
 const SendImageToCaretaker = ({navigation}) => {
   const route = useRoute();
   const image_uri = route.params;

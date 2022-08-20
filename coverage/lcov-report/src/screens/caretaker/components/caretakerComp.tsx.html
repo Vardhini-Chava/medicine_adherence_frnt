@@ -240,7 +240,7 @@ import styles from '../CaretakerStyles/caretakerComStyles';
 &nbsp;
 export default function Caretakercomp({navigation}) {
   const [index, setIndex] = React.useState(0);
-  /* istanbul ignore next */
+  
   useFocusEffect(() =&gt; {
     async function checkforlog() {
       const checkforlogin = await AsyncStorage.getItem('user_id');

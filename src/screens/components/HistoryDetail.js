@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import Timeline from 'react-native-timeline-flatlist';
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
+
 const HistoryDetail = ({data, modalVisibility}) => {
   const [filterData, setfilterData] = useState([]);
   function findTime(ele) {

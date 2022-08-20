@@ -18,6 +18,7 @@ let Reducerfun = (state, action) => {
 };
 
 let initialVal = {data: []};
+
 const Addmedicine = navigation => {
   const [medicines, characterstate] = useReducer(Reducerfun, initialVal);
   useFocusEffect(
@@ -106,7 +107,7 @@ const Addmedicine = navigation => {
                   <Avatar
                     rounded
                     size={50}
-                    source={require('../../assests/images/meddis.png')}
+                    source={require('../../src/assests/images/meddis.png')}
                   />
                   <View style={styles.medNameView}>
                     <ListItem.Title style={styles.medName}>
@@ -147,7 +148,7 @@ const Addmedicine = navigation => {
       {medicines.data.length === 0 ? (
         <View style={styles.imgView}>
           <Image
-            source={require('../../assests/images/nomeds.png')}
+            source={require('../../src/assests/images/nomeds.png')}
             style={styles.img}
             resizeMode="contain"
           />
@@ -167,7 +168,7 @@ const Addmedicine = navigation => {
           onPress={addMedFnc}
           id="addMedButton">
           <LottieView
-            source={require('../../assests/animate/addicon.json')}
+            source={require('../../src/assests/animate/addicon.json')}
             autoPlay
             loop
             speed={2}

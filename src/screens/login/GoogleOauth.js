@@ -11,9 +11,10 @@ import messaging from '@react-native-firebase/messaging';
 import checkConnectivity from '../../connection/checkConnectivity';
 import LottieView from 'lottie-react-native';
 import {Text} from 'react-native-elements';
-import { Signupuser } from '../../redux/apis/access';
+import { Signupuser } from '../../repositories/apis/access';
 import styles from './loginStyles/GoogleAuthStyles';
 import Logger from '../../components/logger';
+
 
 const Login = (navigation) => { 
   const [loading, loadingstate] = React.useState(false);
@@ -78,7 +79,7 @@ const Login = (navigation) => {
       <Text style={styles.createText}>Create an account</Text>
       <LottieView
         style={styles.lottie}
-        source={require('../../../assests/animate/google.json')}
+        source={require('../../../src/assests/animate/google.json')}
         autoPlay
         loop
       />

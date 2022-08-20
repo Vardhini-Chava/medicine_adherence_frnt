@@ -1,4 +1,4 @@
-import { profile } from '../../src/redux/apis/profile';
+import { profile } from '../../src/repositories/apis/profile';
 
 describe('test profile apis', () => {
   it('test saveprofile', () => {

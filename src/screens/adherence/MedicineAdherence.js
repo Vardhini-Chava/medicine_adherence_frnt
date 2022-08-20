@@ -21,6 +21,7 @@ import globalDb from '../../repositories/database/globalDb';
 import AdherencePercentage from '../../components/adherence/adherencePercentage';
 
 let today = new Date();
+
 const Medicineadherence = ({navigation}) => {
   const [reminderdata, reminderdatastate] = React.useState([]);
   const [sync, syncstate] = React.useState(false);
@@ -343,7 +344,7 @@ return (
       {reminderdata.length === 0 && (
         <View style={{alignSelf: 'center'}}>
           <Image
-            source={require('../../../assests/images/noreminders.png')}
+            source={require('../../../src/assests/images/noreminders.png')}
             style={{width: 250}}
             resizeMode="contain"></Image>
         </View>

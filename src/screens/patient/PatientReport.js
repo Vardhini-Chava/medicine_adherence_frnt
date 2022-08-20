@@ -15,7 +15,7 @@ import ProgressCircle from 'react-native-progress-circle';
 import {Button, Divider} from 'react-native-elements';
 import {Card} from 'react-native-paper';
 import {useFocusEffect, useRoute} from '@react-navigation/native';
-import networkCalls from '../../connection/networkCalls';
+import networkCalls from '../../repositories/apis/networkCalls';
 import * as Animatable from 'react-native-animatable';
 import downloadPdf from '../../components/adherence/downloadPdf';
 import LottieView from 'lottie-react-native';
@@ -107,6 +107,7 @@ const Reminders = ({item, index}) => {
     </Animatable.View>
   );
 };
+
 export default function PatientReport({route}) {
   route=useRoute();
   const {
@@ -225,7 +226,7 @@ export default function PatientReport({route}) {
             <LottieView
               style={styles.lottie}
               speed={0.8}
-              source={require('../../../assests/animate/generatepdf.json')}
+              source={require('../../../src/assests/animate/generatepdf.json')}
               autoPlay
               loop
             />
