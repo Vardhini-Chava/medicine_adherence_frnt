@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import enableHooks from "jest-react-hooks-shallow";
 import ViewProfile from '../../../src/screens/patient/PatientProfile';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
 enableHooks(jest);

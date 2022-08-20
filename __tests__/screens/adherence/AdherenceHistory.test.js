@@ -1,8 +1,7 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
 import AdherenceHistory from '../../../src/screens/adherence/AdherenceHistory';
-import Enzyme from 'enzyme';
-import {shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
 jest.mock('@react-navigation/native', () => ({

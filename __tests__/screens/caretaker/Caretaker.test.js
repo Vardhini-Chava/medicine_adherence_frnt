@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Enzyme from 'enzyme';
-import {shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import CareTaker from '../../../src/screens/caretaker/Caretaker';
 import {NavigationContainer} from '@react-navigation/native';

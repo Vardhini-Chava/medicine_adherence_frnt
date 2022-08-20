@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-duplicate-props */
-/* eslint-disable react/self-closing-comp */
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import AdherenceHistory from '../adherence/AdherenceHistory';
@@ -18,7 +16,6 @@ import ViewProfile from '../patient/PatientProfile';
 import PatientReport from '../patient/PatientReport';
 import DrawerNavigator from '../../navigation/drawerNavigator';
 import UserMed from '../UserMed';
-import {NavigationContainer} from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
@@ -65,13 +62,7 @@ const Stackscreen = () => {
           headerTitleStyle: {color: 'black', fontSize: 20},
         }}
         component={Reminder}
-        options={{
-          headerTitleStyle: {color: 'black', fontSize: 20},
-        }}></Stack.Screen>
-      {/* <Stack.Screen
-        name="Events"
-        options={{headerTitleStyle: {color: 'white', fontSize: 20}}}
-        component={Addevent}></Stack.Screen> */}
+        ></Stack.Screen>
       <Stack.Screen
         name="Camera"
         component={CameraScreen}

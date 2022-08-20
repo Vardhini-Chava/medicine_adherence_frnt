@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Enzyme,{shallow} from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Patientrequest from '../../../src/screens/patient/PatientRequest';
 Enzyme.configure({adapter: new Adapter()});

@@ -124,7 +124,6 @@ const Addmedicine = navigation => {
                 <AntIcon
                   testID="remIcon"
                   name="clockcircle"
-                  /* istanbul ignore next */
                   color={item.status === 0 ? '#3743ab' : '#4dd0e1'}
                   size={24}
                 />

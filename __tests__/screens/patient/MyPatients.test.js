@@ -3,7 +3,6 @@ import renderer from 'react-test-renderer';
 import enableHooks from "jest-react-hooks-shallow";
 import Mypatient from '../../../src/screens/patient/MyPatients';
 import Enzyme from 'enzyme';
-import {shallow} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
 enableHooks(jest);

@@ -1,8 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Medicineadherence from '../../../src/screens/adherence/MedicineAdherence';
-import Enzyme from 'enzyme';
-import {shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
 jest.mock("@react-native-google-signin/google-signin", () => ({
