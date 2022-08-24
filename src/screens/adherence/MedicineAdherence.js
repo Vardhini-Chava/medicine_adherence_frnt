@@ -237,18 +237,6 @@ return (
       syncstate(false);
     }
   }
-
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     fetchallreminders().then(() => {
-  //       fetchallremindersandsync();
-  //     });
-
-  //     return () => {
-  //      /* do nothing */
-  //     };
-  //   }, []),
-  // );
   const pressFnc = () => {
     reminderdata.length === 0
       ? Alert.alert('No reminders set')

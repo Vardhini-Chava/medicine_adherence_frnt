@@ -44,10 +44,4 @@ const networkCalls = {
     return response.json();
   },
 };
-
-
-
-
-
-
 export default networkCalls;
