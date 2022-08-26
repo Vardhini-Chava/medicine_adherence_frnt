@@ -4,9 +4,12 @@ import AdherenceHistory from '../../../src/screens/adherence/AdherenceHistory';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
-jest.mock('@react-navigation/native', () => ({
-  ...jest.requireActual('@react-navigation/native'),
-  useFocusEffect: jest.fn(),
+import enableHooks from "jest-react-hooks-shallow";
+enableHooks(jest);
+
+jest.mock("@react-navigation/native", () => ({
+  ...jest.requireActual("@react-navigation/native"),
+  useFocusEffect: jest.fn().mockImplementation((func) => func()),
 }));
 jest.mock("rn-fetch-blob", () => ({
   default: jest.fn(),

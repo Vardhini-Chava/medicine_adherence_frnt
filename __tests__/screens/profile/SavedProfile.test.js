@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import SavedDetails from '../../../src/screens/profile/SavedDetails';
 jest.mock("@react-navigation/native", () => ({
   ...jest.requireActual("@react-navigation/native"),
-  useFocusEffect: jest.fn(),
+  useFocusEffect: jest.fn().mockImplementation((func) => func()),
 }));
 jest.mock("@react-native-async-storage/async-storage", () => ({
   getItem: jest.fn(),

@@ -6,7 +6,7 @@ jest.mock("@react-native-google-signin/google-signin", () => ({
 }));
 jest.mock("@react-navigation/native", () => ({
   ...jest.requireActual("@react-navigation/native"),
-  useFocusEffect: jest.fn(),
+  useFocusEffect: jest.fn().mockImplementation((func) => func()),
 }));
 describe('OnBoarding Screen', () => {
   it('renders correctly', () => {

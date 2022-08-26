@@ -6,7 +6,7 @@ import Patientrequest from '../../../src/screens/patient/PatientRequest';
 Enzyme.configure({adapter: new Adapter()});
 jest.mock('@react-navigation/native', () => ({
   ...jest.requireActual('@react-navigation/native'),
-  useFocusEffect: jest.fn(),
+  useFocusEffect: jest.fn().mockImplementation((func) => func()),
 }));
 describe('Click send image', () => {
   it('renders correctly', () => {

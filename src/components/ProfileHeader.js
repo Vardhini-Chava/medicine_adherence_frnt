@@ -12,17 +12,17 @@ const ProfileHeader = () => {
   useFocusEffect(() => {
     async function getuser() {
       try {
-        if (!(await GoogleSignin.isSignedIn())) {
+        if (( GoogleSignin.isSignedIn())) {
           imgstate('https://i.stack.imgur.com/l60Hf.png');
-          await AsyncStorage.getItem('user_id');
-          let username = await AsyncStorage.getItem('user_name');
+           AsyncStorage.getItem('user_id');
+          let username =  AsyncStorage.getItem('user_name');
           if (username !== null) {
             username = '';
           }
           namestate(username);
           return;
         }
-        const user = await GoogleSignin.getCurrentUser();
+        const user =  GoogleSignin.getCurrentUser();
         imgstate(user.user.photo);
         namestate(user.user.name);
       } catch (err) {}

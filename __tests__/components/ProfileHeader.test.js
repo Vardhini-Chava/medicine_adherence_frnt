@@ -14,10 +14,9 @@ jest.mock("react-redux", () => ({
     ...jest.requireActual("@react-navigation/native"),
     useFocusEffect: jest.fn().mockImplementation((getuser) => getuser()),
   }));
-jest.mock("@react-navigation/native", () => ({
-  ...jest.requireActual("@react-navigation/native"),
-  useFocusEffect: jest.fn(),
-}));
+  
+  
+  
 describe('Click send image', () => {
     it('renders correctly', () => {
       const tree = renderer

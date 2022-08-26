@@ -9,7 +9,7 @@ jest.mock("@react-native-google-signin/google-signin", () => ({
 }));
 jest.mock("@react-navigation/native", () => ({
   ...jest.requireActual("@react-navigation/native"),
-  useFocusEffect: jest.fn(),
+  useFocusEffect: jest.fn().mockImplementation((func) => func()),
 }));
 describe('Click send image', () => {
   it('renders correctly', () => {

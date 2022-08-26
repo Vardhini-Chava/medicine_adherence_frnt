@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">10.52% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/19</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">10.52% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/19</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -117,6 +117,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,36 +133,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,15 +164,15 @@ import RNFetchBlob from 'rn-fetch-blob';
 import Logger from '../logger';
 &nbsp;
 const {config} = RNFetchBlob;
-
-const DownloadPdf = async (globalmedId) =&gt; {
-  const date = new Date();
 &nbsp;
-  let downloaddir = RNFetchBlob.fs.dirs.DownloadDir;
-  let downloadPath = `${downloaddir}/report_${Math.floor(
+const DownloadPdf = <span class="fstat-no" title="function not covered" >as</span>ync (globalmedId) =&gt; {
+  const date = <span class="cstat-no" title="statement not covered" >new Date();</span>
+&nbsp;
+  let downloaddir = <span class="cstat-no" title="statement not covered" >RNFetchBlob.fs.dirs.DownloadDir;</span>
+  let downloadPath = <span class="cstat-no" title="statement not covered" >`${downloaddir}/report_${Math.floor(</span>
     date.getTime() + date.getSeconds() / 2,
   )}.pdf`;
-  const options = {
+  const options = <span class="cstat-no" title="statement not covered" >{</span>
     fileCache: true,
     addAndroidDownloads: {
       useDownloadManager: true, 
@@ -181,28 +181,28 @@ const DownloadPdf = async (globalmedId) =&gt; {
       description: 'Downloading your report',
     },
   };
-  let generate_pdf_url = `${API_URL}/api/v1/pdf?medId=${globalmedId}`;
-  let response = '';
+  let generate_pdf_url = <span class="cstat-no" title="statement not covered" >`${API_URL}/api/v1/pdf?medId=${globalmedId}`;</span>
+  let response = <span class="cstat-no" title="statement not covered" >'';</span>
 &nbsp;
-  try {
-    await fetch(generate_pdf_url)
-      .then(res =&gt; res.json())
-      .then(async resp =&gt; {
-        Logger.loggerInfo(resp.message);
-        await config(options)
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    await fetch(generate_pdf_url)</span>
+      .then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >res.json())</span>
+      .then(<span class="fstat-no" title="function not covered" >as</span>ync resp =&gt; {
+<span class="cstat-no" title="statement not covered" >        Logger.loggerInfo(resp.message);</span>
+<span class="cstat-no" title="statement not covered" >        await config(options)</span>
           .fetch('GET', `${API_URL}/upload/static/pdf/${resp.message}.pdf`)
-          .catch(() =&gt; {
-            return 'err';
+          .catch(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >            return 'err';</span>
           });
       })
-      .catch(() =&gt; {
-        response = 'err';
-        return response;
+      .catch(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        response = 'err';</span>
+<span class="cstat-no" title="statement not covered" >        return response;</span>
       });
-    return response;
+<span class="cstat-no" title="statement not covered" >    return response;</span>
   } catch (err) {
-    response = 'err';
-    return response;
+<span class="cstat-no" title="statement not covered" >    response = 'err';</span>
+<span class="cstat-no" title="statement not covered" >    return response;</span>
   }
 };
 &nbsp;
@@ -214,7 +214,7 @@ export default DownloadPdf;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-20T12:22:08.636Z
+                at 2022-08-24T17:11:06.645Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

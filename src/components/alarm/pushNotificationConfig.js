@@ -21,23 +21,23 @@ function PlaySound() {
 function Pushnotificationforeground(mssg) {
   let body;
   let big_picure_url = '';
-  if (mssg.notification.title === 'caretaker') {
+  if (mssg.notification === 'caretaker') {
     big_picure_url = mssg.notification.android.imageUrl;
-    body = mssg.notification.body;
+    body = mssg.notification;
     generatenotificationforcaretaker(mssg, body, big_picure_url);
-  } else if (mssg.notification.title === 'request') {
-    body = mssg.notification.body;
+  } else if (mssg.notification === 'request') {
+    body = mssg.notification;
     generatenotificationforcaretaker(mssg, body, big_picure_url);
   } else {
-    body = mssg.notification.body;
+    body = mssg.notification;
     generatenotificationforpatient(mssg, body);
   }
 }
 
 const generatenotificationforpatient = (mssg, body) => {
   let num = Math.floor(Math.random() * 90000) + 10000;
-  PushNotification.localNotificationSchedule({
-    title: mssg.notification.title,
+  PushNotification({
+    title: mssg.notification,
     message: body,
     subText: '',
     id: num.toString(),
@@ -76,7 +76,7 @@ const generatenotificationforcaretaker = (
     },
     created => Logger.loggerInfo(`createChannel returned '${created}'`),
   );
-  PushNotification.localNotificationSchedule({
+  PushNotification({
     title: mssg.notification.title,
     message: body,
     subText: '',

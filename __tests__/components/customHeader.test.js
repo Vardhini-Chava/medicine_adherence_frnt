@@ -14,6 +14,7 @@ jest.mock("react-redux", () => ({
     default: jest.fn(),
     GoogleSignin: {
       Configure : () => ({}),
+      isSignedIn : () =>({}),
     }
   }));
 jest.mock("@react-navigation/native", () => ({
@@ -21,6 +22,17 @@ jest.mock("@react-navigation/native", () => ({
   useFocusEffect: jest.fn(),
   useEffect: jest.fn(),
 }));
+
+
+jest.mock("react-native-logs", () => ({
+  
+  default: jest.fn(),
+  createLogger:jest.fn(),
+  logger : jest.fn(),
+  reactNativeLogs : jest.fn(),
+
+}));
+
 describe('customheader', () => {
     it('renders correctly', () => {
       const tree = renderer

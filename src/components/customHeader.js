@@ -26,32 +26,28 @@ const CustomHeader = props => {
   });
   const [loggedin, loggedinstate] = React.useState(true);
  
-  async function getuser() {
+  async function getuser(checkforlogin) {
     try {
-      const isllooged = await GoogleSignin.isSignedIn();
-      const checkforlogin = await AsyncStorage.getItem('user_id');
-
-      Logger.loggerInfo(isllooged);
-
       if (checkforlogin !== null) {
-        Logger.loggerInfo(isllooged);
+        
         loggedinstate(true);
         return;
       }
-
       loggedinstate(false);
     } catch (err) {}
   } 
   
   useEffect(() => {
     return props.navigation.addListener('focus', () => {
-      getuser();
+      const checkforlogin =  AsyncStorage.getItem('user_id');
+      getuser(checkforlogin);
     });
   }, [props.navigation]);
   
   useFocusEffect(() => { 
-    Logger.loggerWarn('f');
-    getuser();
+    const isllooged =  GoogleSignin.isSignedIn();
+    const checkforlogin =  AsyncStorage.getItem('user_id');
+    getuser(checkforlogin)
   });
   const touchFnc = () => {
     props.navigation.navigate('Profile')

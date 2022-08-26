@@ -6,6 +6,9 @@ import configureStore from "redux-mock-store";
 import toJson from "enzyme-to-json";
 import AdherencePercentage from "../../../src/components/adherence/adherencePercentage";
 
+import { Pressable } from "react-native";
+import enableHooks from "jest-react-hooks-shallow";
+enableHooks(jest);
 Enzyme.configure({ adapter: new Adapter() });
 const mockStore = configureStore([]);
 
@@ -26,5 +29,10 @@ describe("test adherence per", () => {
 
     expect.assertions(1);
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('test open save button', () => {
+    const wrapper = shallow(<AdherencePercentage />);
+    wrapper.find('#test')
   });
 });

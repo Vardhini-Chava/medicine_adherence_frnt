@@ -103,6 +103,20 @@ const SendImageToCaretaker = ({navigation}) => {
     refeereshstate(false);
   };
 
+  useFocusEffect(
+    React.useCallback(() => {
+      async function name() {
+        await fetchMedicines();
+        let value = await fetchcaretakers();
+        mycaretakerstate(value);
+      }
+      name();
+      return () => {
+        /*do nothing*/
+      };
+    }, []),
+  );
+
   useEffect(() => {
     fetchcaretakers();
   }, []);
@@ -115,19 +129,7 @@ const SendImageToCaretaker = ({navigation}) => {
         medsArrayState(medsArr);
       });
     };
-    useFocusEffect(
-      React.useCallback(() => {
-        async function name() {
-          await fetchMedicines();
-          let value = await fetchcaretakers();
-          mycaretakerstate(value);
-        }
-        name();
-        return () => {
-          /*do nothing*/
-        };
-      }, []),
-    );
+   
   };
   async function SendImage() {
     setModalVisible(true);
@@ -259,7 +261,7 @@ const SendImageToCaretaker = ({navigation}) => {
 
           <Button
             disabled={send_to === ''}
-            id="sendImage"
+            id="press"
             onPress={SendImage}
             title="Send"
             buttonStyle={styles.button}

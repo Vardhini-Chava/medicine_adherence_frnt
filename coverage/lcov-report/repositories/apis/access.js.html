@@ -23,14 +23,14 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">9.09% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>0/0</span>
             </div>
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">9.09% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/11</span>
             </div>
         
             
@@ -108,6 +108,14 @@
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -117,6 +125,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,22 +141,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,15 +150,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {API_URLS} from '../apiUrl';
-
-export const Signupuser = {
-  signup: async (params) =&gt; {
-    const {userinfo, token} = params;
-    let url = new URL(API_URLS.SIGNUP);
-    url.searchParams.append('fcmToken', token);
-    url.searchParams.append('picPath', userinfo.user.photo);
 &nbsp;
-    const response = await fetch(url, {
+export const Signupuser = {
+  signup: <span class="fstat-no" title="function not covered" >as</span>ync (params) =&gt; {
+    const {userinfo, token} = <span class="cstat-no" title="statement not covered" >params;</span>
+    let url = <span class="cstat-no" title="statement not covered" >new URL(API_URLS.SIGNUP);</span>
+<span class="cstat-no" title="statement not covered" >    url.searchParams.append('fcmToken', token);</span>
+<span class="cstat-no" title="statement not covered" >    url.searchParams.append('picPath', userinfo.user.photo);</span>
+&nbsp;
+    const response = <span class="cstat-no" title="statement not covered" >await fetch(url, {</span>
       method: 'POST',
       body: JSON.stringify({
         userName: userinfo.user.givenName,
@@ -168,13 +168,13 @@ export const Signupuser = {
         'Content-type': 'application/json',
       },
     });
-    return response;
+<span class="cstat-no" title="statement not covered" >    return response;</span>
   },
   
-  loginuser: async (params) =&gt; {
-    const {userinfo, token} = params;
-    let url = new URL(API_URLS.LOGIN);
-    const response = await fetch(url, {
+  loginuser: <span class="fstat-no" title="function not covered" >as</span>ync (params) =&gt; {
+    const {userinfo, token} = <span class="cstat-no" title="statement not covered" >params;</span>
+    let url = <span class="cstat-no" title="statement not covered" >new URL(API_URLS.LOGIN);</span>
+    const response = <span class="cstat-no" title="statement not covered" >await fetch(url, {</span>
       method: 'POST',
       body: JSON.stringify({
         email: userinfo.user.email,
@@ -184,7 +184,7 @@ export const Signupuser = {
         'Content-type': 'application/json',
       },
     });
-    return response;
+<span class="cstat-no" title="statement not covered" >    return response;</span>
   },
 &nbsp;
 &nbsp;
@@ -199,7 +199,7 @@ export const Signupuser = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-20T12:22:08.636Z
+                at 2022-08-24T17:11:06.645Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

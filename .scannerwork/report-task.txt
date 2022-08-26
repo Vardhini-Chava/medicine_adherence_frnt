@@ -2,5 +2,5 @@ projectKey=adher_key
 serverUrl=http://localhost:9000
 serverVersion=9.4.0.54424
 dashboardUrl=http://localhost:9000/dashboard?id=adher_key
-ceTaskId=AYK6LVQOg4Y9wNNVZK5n
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYK6LVQOg4Y9wNNVZK5n
+ceTaskId=AYLPmxRMg4Y9wNNVZK5o
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYLPmxRMg4Y9wNNVZK5o

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>8/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>8/18</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -124,33 +124,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,27 +179,27 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './componentStyles/styles';
-
-
+&nbsp;
+&nbsp;
 const ProfileHeader = () =&gt; {
   const [umg, imgstate] = React.useState('https://i.stack.imgur.com/l60Hf.png');
   const [name, namestate] = React.useState('');
   useFocusEffect(() =&gt; {
     async function getuser() {
       try {
-        if (!(await GoogleSignin.isSignedIn())) {
-          imgstate('https://i.stack.imgur.com/l60Hf.png');
-          await AsyncStorage.getItem('user_id');
-          let username = await AsyncStorage.getItem('user_name');
-          if (username !== null) {
-            username = '';
+        if (( GoogleSignin.isSignedIn())) {
+<span class="cstat-no" title="statement not covered" >          imgstate('https://i.stack.imgur.com/l60Hf.png');</span>
+<span class="cstat-no" title="statement not covered" >           AsyncStorage.getItem('user_id');</span>
+          let username =  <span class="cstat-no" title="statement not covered" >AsyncStorage.getItem('user_name');</span>
+<span class="cstat-no" title="statement not covered" >          if (username !== null) {</span>
+<span class="cstat-no" title="statement not covered" >            username = '';</span>
           }
-          namestate(username);
-          return;
+<span class="cstat-no" title="statement not covered" >          namestate(username);</span>
+<span class="cstat-no" title="statement not covered" >          return;</span>
         }
-        const user = await GoogleSignin.getCurrentUser();
-        imgstate(user.user.photo);
-        namestate(user.user.name);
+        const user =  <span class="cstat-no" title="statement not covered" >GoogleSignin.getCurrentUser();</span>
+<span class="cstat-no" title="statement not covered" >        imgstate(user.user.photo);</span>
+<span class="cstat-no" title="statement not covered" >        namestate(user.user.name);</span>
       } catch (err) {}
     }
     getuser();
@@ -235,7 +235,7 @@ export default ProfileHeader;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-20T12:22:08.636Z
+                at 2022-08-24T17:11:06.645Z
             </div>
         <script src="../prettify.js"></script>
         <script>

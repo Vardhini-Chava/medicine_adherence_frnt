@@ -7,7 +7,7 @@ const AdherencePercentage = (startDate, days, times, currentCount, _name) => {
     let daysSet = new Set(daysarray);
     const today = new Date();
     const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-
+  
     let startingDate = new Date(startDate);
     const utc1 = Date.UTC(
       today.getFullYear(),
