@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test collector category test category 1`] = `
+<view
+  style="background-color:white;height:100%"
+>
+  <view
+    pointer-events="box-none"
+    style="position:absolute;left:0;right:0;align-items:center;justify-content:center;top:0;opacity:0;transform:[object Object]"
+    testid="toastAnimatedContainer"
+  >
+    <view
+      focusable="true"
+      style="flex-direction:row;height:60px;width:340px;border-radius:6px;shadow-offset:[object Object];shadow-opacity:0.1px;shadow-radius:6px;elevation:2px;background-color:#FFF;border-left-width:5px;border-left-color:#69C779;opacity:1"
+      testid="toastTouchableContainer"
+    >
+      <view
+        style="0:[object Object]"
+        testid="toastContentContainer"
+      />
+    </view>
+  </view>
+  <view
+    style="padding:15px;background-color:lightgrey"
+  >
+    <text
+      style="font-weight:bold"
+    >
+      Timings
+    </text>
+  </view>
+  <view>
+    <rctscrollview
+      data=""
+      scrolleventthrottle="50"
+      stickyheaderindices=""
+      testid="today"
+      viewabilityconfigcallbackpairs=""
+    >
+      <view />
+    </rctscrollview>
+  </view>
+</view>
+`;

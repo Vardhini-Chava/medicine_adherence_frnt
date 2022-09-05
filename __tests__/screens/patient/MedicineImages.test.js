@@ -18,4 +18,5 @@ describe('Click send image', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+  
 });

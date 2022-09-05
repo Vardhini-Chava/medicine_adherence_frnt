@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const networkCalls = {
   synchistory: async (medId, medHistory) => {
-    Logger.loggerInfo(medHistory);
     let response = await fetch(
       `${API_URL}/api/v1/medicine-history/sync?medId=${medId}`,
       {

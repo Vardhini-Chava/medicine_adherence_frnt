@@ -112,24 +112,20 @@
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -146,8 +142,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -167,47 +161,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {useFocusEffect} from '@react-navigation/native';
-import React from 'react';
-import {View, Text, Image} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import styles from './componentStyles/styles';
-&nbsp;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import { useFocusEffect } from "@react-navigation/native";
+import React from "react";
+import { View, Text, Image } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import styles from "./componentStyles/styles";
 &nbsp;
 const ProfileHeader = () =&gt; {
-  const [umg, imgstate] = React.useState('https://i.stack.imgur.com/l60Hf.png');
-  const [name, namestate] = React.useState('');
+  const [umg, imgstate] = React.useState("https://i.stack.imgur.com/l60Hf.png");
+  const [name, namestate] = React.useState("");
   useFocusEffect(() =&gt; {
-    async function getuser() {
-      try {
-        if (( GoogleSignin.isSignedIn())) {
-<span class="cstat-no" title="statement not covered" >          imgstate('https://i.stack.imgur.com/l60Hf.png');</span>
-<span class="cstat-no" title="statement not covered" >           AsyncStorage.getItem('user_id');</span>
-          let username =  <span class="cstat-no" title="statement not covered" >AsyncStorage.getItem('user_name');</span>
-<span class="cstat-no" title="statement not covered" >          if (username !== null) {</span>
-<span class="cstat-no" title="statement not covered" >            username = '';</span>
-          }
-<span class="cstat-no" title="statement not covered" >          namestate(username);</span>
-<span class="cstat-no" title="statement not covered" >          return;</span>
-        }
-        const user =  <span class="cstat-no" title="statement not covered" >GoogleSignin.getCurrentUser();</span>
-<span class="cstat-no" title="statement not covered" >        imgstate(user.user.photo);</span>
-<span class="cstat-no" title="statement not covered" >        namestate(user.user.name);</span>
-      } catch (err) {}
-    }
     getuser();
   });
 &nbsp;
+  async function getuser() {
+    try {
+      if (GoogleSignin.isSignedIn()) {
+<span class="cstat-no" title="statement not covered" >        imgstate("https://i.stack.imgur.com/l60Hf.png");</span>
+<span class="cstat-no" title="statement not covered" >        AsyncStorage.getItem("user_id");</span>
+        let username = <span class="cstat-no" title="statement not covered" >AsyncStorage.getItem("user_name");</span>
+<span class="cstat-no" title="statement not covered" >        if (username !== null) {</span>
+<span class="cstat-no" title="statement not covered" >          username = "";</span>
+        }
+<span class="cstat-no" title="statement not covered" >        namestate(username);</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+      const user = <span class="cstat-no" title="statement not covered" >GoogleSignin.getCurrentUser();</span>
+<span class="cstat-no" title="statement not covered" >      imgstate(user.user.photo);</span>
+<span class="cstat-no" title="statement not covered" >      namestate(user.user.name);</span>
+    } catch (err) {}
+  }
+&nbsp;
   return (
-    &lt;View
-      style={styles.container}&gt;
+    &lt;View style={styles.container}&gt;
       &lt;Image
         source={{
           uri: umg,
@@ -215,13 +202,8 @@ const ProfileHeader = () =&gt; {
         style={styles.img}
       /&gt;
       &lt;View style={styles.nameConatiner}&gt;
-        &lt;Text
-          style={styles.nameText}&gt;
-          {name}
-        &lt;/Text&gt;
-        &lt;Text style={styles.text}&gt;
-          {'View and edit profile'}
-        &lt;/Text&gt;
+        &lt;Text style={styles.nameText}&gt;{name}&lt;/Text&gt;
+        &lt;Text style={styles.text}&gt;{"View and edit profile"}&lt;/Text&gt;
       &lt;/View&gt;
     &lt;/View&gt;
   );
@@ -235,7 +217,7 @@ export default ProfileHeader;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-24T17:11:06.645Z
+                at 2022-09-05T06:00:44.193Z
             </div>
         <script src="../prettify.js"></script>
         <script>

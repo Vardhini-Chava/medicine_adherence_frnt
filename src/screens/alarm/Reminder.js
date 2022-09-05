@@ -1,46 +1,61 @@
-import React, {useEffect} from 'react';
-import {View, Text, ScrollView, Alert} from 'react-native';
-import {Button} from 'react-native-elements';
-import {Divider} from 'react-native-elements/dist/divider/Divider';
-import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import React, { useEffect, useState } from "react";
+import { View, Text, ScrollView, Alert } from "react-native";
+import { Button } from "react-native-elements";
+import { Divider } from "react-native-elements/dist/divider/Divider";
+import SectionedMultiSelect from "react-native-sectioned-multi-select";
 
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {day_data} from '../../components/alarm/timeData';
-import PushNotification, {Importance} from 'react-native-push-notification';
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { day_data } from "../../components/alarm/timeData";
+import PushNotification, { Importance } from "react-native-push-notification";
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon2 from 'react-native-vector-icons/MaterialIcons';
-import EntypoIcon from 'react-native-vector-icons/Entypo';
+import Icon from "react-native-vector-icons/FontAwesome";
+import Icon2 from "react-native-vector-icons/MaterialIcons";
+import EntypoIcon from "react-native-vector-icons/Entypo";
 
-import {TextInput} from 'react-native-paper';
-import CheckBox from 'react-native-check-box';
-import MultiSlider from '@ptomasroos/react-native-multi-slider'; 
-import globalDb from '../../repositories/database/globalDb';
-import styles from './alarmStyles/ReminderStyles';
-import Logger from '../../components/logger';
-import {useRoute} from '@react-navigation/native';
+import { TextInput } from "react-native-paper";
+import CheckBox from "react-native-check-box";
+import MultiSlider from "@ptomasroos/react-native-multi-slider";
+import globalDb from "../../repositories/database/globalDb";
+import styles from "./alarmStyles/ReminderStyles";
+import Logger from "../../components/logger";
+import { useRoute } from "@react-navigation/native";
 var counter = 0;
 
-const Reminder = ({navigation}) => {
+const Reminder = ({ navigation }) => {
+  const [picker, pickerstate] = useState(false);
+  const [selectedItems, _slectedstate] = useState([]);
+  const [selecteddaysItems, slecteddaysstate] = useState([]);
+  const [load, loadstate] = useState(false);
+  const [start_date, start_datestate] = useState(new Date());
+  const [end_date, end_datestate] = useState(new Date());
+  const [store_start_date, _store_start_datestate] = useState(new Date());
+  const [store_end_date, store_end_datestate] = useState(new Date());
+  const [check1, setCheck1] = useState(false);
+  const [check2, setCheck2] = React.useState(false);
+  const [title, titlestate] = useState("");
+  const [time_picker_mode, time_picker_mode_state] = useState(false);
+  const [timeings, timestate] = useState([]);
+  const [multiSliderValue, setMultiSliderValue] = useState([0]);
+  const [timearray, timearraystate] = useState([]);
   const db = globalDb();
 
   useEffect(() => {
-    db.transaction(txn => {
-      Logger.loggerInfo('e');
+    db.transaction((txn) => {
+      Logger.loggerInfo("e");
       txn.executeSql(
-        'SELECT * FROM `User_medicines` where user_id = ? AND status = ?',
+        "SELECT * FROM `User_medicines` where user_id = ? AND status = ?",
         [id, 1],
         function (_tx, res) {
-          Logger.loggerInfo('success');
+          Logger.loggerInfo("success");
           Logger.loggerInfo(res.rows.item(0));
           titlestate(res.rows.item(0).title);
-          timearraystate(res.rows.item(0).time.split('-'));
-        },
+          timearraystate(res.rows.item(0).time.split("-"));
+        }
       );
     });
   }, []);
 
-  const multiSliderValuesChange = values => {
+  const multiSliderValuesChange = (values) => {
     var curr_date = new Date();
     Logger.loggerInfo(curr_date);
     Logger.loggerInfo(curr_date.setDate(curr_date.getDate() + values[0]));
@@ -54,36 +69,14 @@ const Reminder = ({navigation}) => {
   const id = route.params;
   Logger.loggerInfo(id);
 
-  const [picker, pickerstate] = React.useState(false);
-  const [selectedItems, _slectedstate] = React.useState([]);
-  const [selecteddaysItems, slecteddaysstate] = React.useState([]);
-  const [load, loadstate] = React.useState(false);
-  const [start_date, start_datestate] = React.useState(new Date());
-  const [end_date, end_datestate] = React.useState(new Date());
-  const [store_start_date, _store_start_datestate] = React.useState(new Date());
-  const [store_end_date, store_end_datestate] = React.useState(new Date());
-  const [check1, setCheck1] = React.useState(false);
-  const [check2, setCheck2] = React.useState(false);
-  const [title, titlestate] = React.useState('');
-  const [time_picker_mode, time_picker_mode_state] = React.useState(false);
-  const [timeings, timestate] = React.useState([]);
-  const [multiSliderValue, setMultiSliderValue] = React.useState([0]);
-  const [timearray, timearraystate] = React.useState([]);
-
-  const onSelecteddaysItemsChange = selectedi => {
+  const onSelecteddaysItemsChange = (selectedi) => {
     slecteddaysstate(selectedi);
   };
-  const hideDatePicker = () => {
-    pickerstate(false);
-  };
-  const titlechange = txt => {
+  const titlechange = (txt) => {
     titlestate(txt);
   };
-  const hideDatePickerfortime = () => {
-    time_picker_mode_state(false);
-  };
 
-  const setreminderwithselecteddate = titl => {
+  const setreminderwithselecteddate = (titl) => {
     counter = 0;
     var now = new Date();
 
@@ -91,37 +84,37 @@ const Reminder = ({navigation}) => {
     Logger.loggerInfo(new Date(Date.now()));
     Logger.loggerInfo(now);
     let sample_date = new Date(start_date);
-    var weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+    var weeks = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
     var set = new Set() < string > selecteddaysItems;
     if (check1) {
-      timeings.forEach(timee => {
+      timeings.forEach((timee) => {
         counter += 1;
-        let timm_array = timee.split(':');
+        let timm_array = timee.split(":");
 
         now.setHours(timm_array[0]);
         now.setMinutes(timm_array[1]);
 
         PushNotification.localNotificationSchedule({
           title: titl,
-          message: 'Time to eat your medicine',
-          subText: 'Mark as read if you have taken',
+          message: "Time to eat your medicine",
+          subText: "Mark as read if you have taken",
           id: num.toString(),
-          color: '#3743ab',
+          color: "#3743ab",
           showWhen: true,
           tag: id.toString(),
-          visibility: 'public',
+          visibility: "public",
           usesChronometer: true,
-          when: now.getHours() + '' + now.getMinutes(),
+          when: now.getHours() + "" + now.getMinutes(),
           date: new Date(now.getTime()),
           allowWhileIdle: true,
           vibrate: true,
           playSound: true,
           invokeApp: false,
-          soundName: 'android.resource://com.project/raw/my_sound.mp3',
+          soundName: "android.resource://com.project/raw/my_sound.mp3",
           importance: Importance.HIGH,
-          repeatType: 'day',
-          smallIcon: 'android.resource://com.project/raw/icon.png',
-          actions: ['Open app to mark', 'Skip'],
+          repeatType: "day",
+          smallIcon: "android.resource://com.project/raw/icon.png",
+          actions: ["Open app to mark", "Skip"],
           repeatTime: 3,
         });
       });
@@ -132,50 +125,50 @@ const Reminder = ({navigation}) => {
 
       now.setMonth(sample_date.getMonth());
       if (set.has(weeks[now.getDay()])) {
-        timeings.forEach(timee => {
+        timeings.forEach((timee) => {
           counter += 1;
-          let timm_array = timee.split(':');
+          let timm_array = timee.split(":");
 
           now.setHours(timm_array[0]);
           now.setMinutes(timm_array[1]);
-        
 
           let num1 = Math.floor(Math.random() * 90000) + 10000;
 
           PushNotification.createChannel(
             {
               channelId: num1.toString(),
-              channelName: titl + 'Med channel',
-              channelDescription: 'A channel to categorise your notifications',
+              channelName: titl + "Med channel",
+              channelDescription: "A channel to categorise your notifications",
               playSound: false,
-              soundName: 'default',
+              soundName: "default",
               importance: Importance.HIGH,
               vibrate: true,
             },
-            created => Logger.loggerInfo(`createChannel returned '${created}'`),
+            (created) =>
+              Logger.loggerInfo(`createChannel returned '${created}'`)
           );
           PushNotification.localNotificationSchedule({
             title: titl,
-            message: 'Time to eat your medicine',
-            subText: 'Mark as read if you have taken',
+            message: "Time to eat your medicine",
+            subText: "Mark as read if you have taken",
             id: num1.toString(),
-            color: '#3743ab',
+            color: "#3743ab",
             showWhen: true,
             tag: id.toString(),
-            visibility: 'public',
+            visibility: "public",
             usesChronometer: true,
-            when: now.getHours() + '' + now.getMinutes(),
+            when: now.getHours() + "" + now.getMinutes(),
             date: new Date(now.getTime()),
             allowWhileIdle: true,
             vibrate: true,
             playSound: true,
             invokeApp: false,
-            soundName: 'android.resource://com.project/raw/my_sound.mp3',
+            soundName: "android.resource://com.project/raw/my_sound.mp3",
             importance: Importance.HIGH,
 
-            smallIcon: 'ic_launcher',
-            largeIcon: 'ic_launcher',
-            actions: ['Open app to mark', 'Skip'],
+            smallIcon: "ic_launcher",
+            largeIcon: "ic_launcher",
+            actions: ["Open app to mark", "Skip"],
             repeatTime: 3,
           });
         });
@@ -185,63 +178,34 @@ const Reminder = ({navigation}) => {
     }
   };
 
-  const handleConfirm = date => {
-    Logger.loggerInfo(date);
-
-    pickerstate(false);
-
-    start_datestate(date);
-    store_start_date(date);
-  };
-
-  const handleConfirmfortime = date => {
-    Logger.loggerInfo('A time has been picked');
-
-    if (date.getHours() > 11) {
-      Logger.loggerInfo(timeings);
-      timearray.push(date.getHours() + ':' + date.getMinutes() + ' PM');
-      timeings.push(date.getHours() + ':' + date.getMinutes());
-      timestate(timeings);
-      Logger.loggerInfo(timeings);
-    } else {
-      timearray.push(date.getHours() + ':' + date.getMinutes() + ' AM');
-
-      timeings.push(date.getHours() + ':' + date.getMinutes());
-      timestate(timeings);
-      Logger.loggerInfo(timeings);
-    }
-    hideDatePickerfortime();
-  };
-
   const savereminder = () => {
-  
     if (
       multiSliderValue[0] === 0 ||
       title.length === 0 ||
       timearray.length === 0
     ) {
-      Alert.alert('Make sure you have valid reminder', ' ', [
+      Alert.alert("Make sure you have valid reminder", " ", [
         {
-          text: 'OK',
+          text: "OK",
           onPress: () => undefined,
         },
       ]);
       return;
     }
     loadstate(true);
-    let time = '';
-    let days = '';
+    let time = "";
+    let days = "";
     for (let i = 0; i < timearray.length; i++) {
-      let mtime = timearray[i].split(' ')[0].split(':')[0];
-      if (parseInt(timearray[i].split(' ')[0].split(':')[1]) < 10) {
-        mtime += ':0' + timearray[i].split(' ')[0].split(':')[1];
+      let mtime = timearray[i].split(" ")[0].split(":")[0];
+      if (parseInt(timearray[i].split(" ")[0].split(":")[1]) < 10) {
+        mtime += ":0" + timearray[i].split(" ")[0].split(":")[1];
       } else {
-        mtime += ':' + timearray[i].split(' ')[0].split(':')[1];
+        mtime += ":" + timearray[i].split(" ")[0].split(":")[1];
       }
       if (i === timearray.length - 1) {
-        time += mtime + ' ' + timearray[i].split(' ')[1];
+        time += mtime + " " + timearray[i].split(" ")[1];
       } else {
-        time += mtime + ' ' + timearray[i].split(' ')[1] + '-';
+        time += mtime + " " + timearray[i].split(" ")[1] + "-";
       }
     }
     if (check2) {
@@ -249,24 +213,23 @@ const Reminder = ({navigation}) => {
         if (i == selecteddaysItems.length - 1) {
           days += selecteddaysItems[i];
         } else {
-          days += selecteddaysItems[i] + ':';
+          days += selecteddaysItems[i] + ":";
         }
       }
-  
     } else if (check1) {
-      days += 'Everyday';
-      slecteddaysstate(['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']);
+      days += "Everyday";
+      slecteddaysstate(["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]);
     }
     setreminderwithselecteddate(title);
 
     db.transaction(function (txn) {
       txn.executeSql(
-        'CREATE TABLE IF NOT EXISTS User_medicines(user_id INTEGER PRIMARY KEY NOT NULL, medicine_name TEXT, medicine_des TEXT , title TEXT, time TEXT , days TEXT , start_date TEXT , end_date TEXT , status INTEGER , sync INTEGER, total_med_reminders INTEGER , current_count INTEGER)',
-        [],
+        "CREATE TABLE IF NOT EXISTS User_medicines(user_id INTEGER PRIMARY KEY NOT NULL, medicine_name TEXT, medicine_des TEXT , title TEXT, time TEXT , days TEXT , start_date TEXT , end_date TEXT , status INTEGER , sync INTEGER, total_med_reminders INTEGER , current_count INTEGER)",
+        []
       );
 
       txn.executeSql(
-        'UPDATE User_medicines SET title=? , time=? , days=? , start_date =? , end_date=? , status=? , sync=? , total_med_reminders = ? , current_count = ?  where user_id = ' +
+        "UPDATE User_medicines SET title=? , time=? , days=? , start_date =? , end_date=? , status=? , sync=? , total_med_reminders = ? , current_count = ?  where user_id = " +
           id,
         [
           title,
@@ -278,10 +241,10 @@ const Reminder = ({navigation}) => {
           0,
           counter,
           0,
-        ],
+        ]
       );
 
-      txn.executeSql('SELECT * FROM `User_medicines`', [], function (_tx, res) {
+      txn.executeSql("SELECT * FROM `User_medicines`", [], function (_tx, res) {
         for (let i = 0; i < res.rows.length; ++i) {
           Logger.loggerInfo(res.rows.item(i));
         }
@@ -290,35 +253,34 @@ const Reminder = ({navigation}) => {
         navigation.pop(1);
       });
     });
-
-  
   };
   const pickerFnc = () => {
-    Logger.loggerInfo('p');
+    Logger.loggerInfo("p");
     Logger.loggerInfo(picker);
     pickerstate(true);
-  }
+  };
   return (
     <ScrollView style={styles.scrollView}>
       <View style={styles.top}>
         <View style={styles.container1}>
           <TouchableOpacity
-            id='picker'
+            id="picker"
             onPress={() => pickerFnc}
-            style={styles.containerTouch}>
+            style={styles.containerTouch}
+          >
             <View style={styles.dateContainer}>
               <Text style={styles.dateText} testID="startDateText">
                 Start Date
               </Text>
               <Text style={styles.dateText1}>
-                {start_date.toISOString().split('T')[0]}
+                {start_date.toISOString().split("T")[0]}
               </Text>
               <Text style={styles.dateText} testID="endDateText">
                 End Date
               </Text>
 
               <Text style={styles.dateText1}>
-                {end_date.toISOString().split('T')[0]}
+                {end_date.toISOString().split("T")[0]}
               </Text>
             </View>
 
@@ -326,13 +288,15 @@ const Reminder = ({navigation}) => {
               name="caret-down"
               style={styles.downIcon}
               color=""
-              size={16}></Icon>
+              size={16}
+            ></Icon>
           </TouchableOpacity>
           <Divider></Divider>
           <Text style={styles.title} testID="titleText">
             Add Title
           </Text>
           <TextInput
+            testID="TextInput"
             selectionColor="#3743ab"
             outlineColor="#3743ab"
             activeUnderlineColor="#3743ab"
@@ -341,16 +305,18 @@ const Reminder = ({navigation}) => {
             style={styles.titleText}
             mode="outlined"
             value={title}
-            onChangeText={titlechange}></TextInput>
+            onChangeText={titlechange}
+          ></TextInput>
 
           <Divider></Divider>
           <View>
             <TouchableOpacity
-              id='time'
+              id="time"
               onPress={() => {
                 time_picker_mode_state(true);
               }}
-              style={styles.timeTouch}>
+              style={styles.timeTouch}
+            >
               <View style={styles.timeContainer}>
                 <Text style={styles.selectTime} testID="selectTimeText">
                   Select Time
@@ -361,7 +327,8 @@ const Reminder = ({navigation}) => {
                 name="caret-down"
                 style={styles.downIcon}
                 color=""
-                size={16}></Icon>
+                size={16}
+              ></Icon>
             </TouchableOpacity>
             {timearray.map((item, index) => {
               return (
@@ -370,16 +337,17 @@ const Reminder = ({navigation}) => {
                     {item}
                   </Text>
                   <TouchableOpacity
-                    key={item + '' + index}
-                    id='timeState'
+                    key={item + "" + index}
+                    id="timeState"
                     onPress={() => {
                       Logger.loggerInfo(
-                        timearray.splice(timearray.indexOf(item), 1),
+                        timearray.splice(timearray.indexOf(item), 1)
                       );
                       timearraystate(
-                        timearray.splice(timearray.indexOf(item), 1),
+                        timearray.splice(timearray.indexOf(item), 1)
                       );
-                    }}>
+                    }}
+                  >
                     <EntypoIcon color="red" name="cross" size={20}></EntypoIcon>
                   </TouchableOpacity>
                 </View>
@@ -399,9 +367,10 @@ const Reminder = ({navigation}) => {
               }}
               isChecked={check1}
               checkBoxColor="#3743ab"
-              leftText={'Everyday'}
+              leftText={"Everyday"}
             />
             <CheckBox
+              testID="CheckBox2"
               style={styles.days}
               onClick={() => {
                 setCheck2(!check2);
@@ -409,11 +378,12 @@ const Reminder = ({navigation}) => {
               }}
               isChecked={check2}
               checkBoxColor="#3743ab"
-              leftText={'Selected days'}
+              leftText={"Selected days"}
             />
 
             {check2 && (
               <SectionedMultiSelect
+                testID="SectionedMultiSelect"
                 IconRenderer={Icon2}
                 items={day_data}
                 uniqueKey="id"
@@ -423,20 +393,21 @@ const Reminder = ({navigation}) => {
                 showDropDowns={true}
                 expandDropDowns={true}
                 styles={{
-                  listContainer: {height: 400},
-                  container: {maxHeight: 400, marginTop: 200, padding: 20},
-                  backdrop: {height: 400},
-                  modalWrapper: {height: 400},
+                  listContainer: { height: 400 },
+                  container: { maxHeight: 400, marginTop: 200, padding: 20 },
+                  backdrop: { height: 400 },
+                  modalWrapper: { height: 400 },
                 }}
                 readOnlyHeadings={true}
                 onSelectedItemsChange={onSelecteddaysItemsChange}
-                selectedItems={selecteddaysItems}></SectionedMultiSelect>
+                selectedItems={selecteddaysItems}
+              ></SectionedMultiSelect>
             )}
           </View>
           <Divider></Divider>
           <View style={styles.durationContainer}>
             <Text style={styles.durationText}>
-              {'Duration : ' + multiSliderValue + ' days'}
+              {"Duration : " + multiSliderValue + " days"}
             </Text>
             <View style={styles.multiSlider}>
               <MultiSlider
@@ -454,10 +425,11 @@ const Reminder = ({navigation}) => {
           <Button
             loading={load}
             title="Save reminder"
-            id='reminder'
+            id="reminder"
             onPress={savereminder}
             buttonStyle={styles.buttonStyle}
-            containerStyle={styles.buttonContainer}></Button>
+            containerStyle={styles.buttonContainer}
+          ></Button>
         </View>
       </View>
     </ScrollView>

@@ -33,6 +33,7 @@ const HomeScreen = () => {
 
         <Tab.Navigator
           screenOptions={() => ({
+            testID:"camI",
             tabBarStyle: {height: 60},
             tabBarInactiveTintColor: '#555',
             tabBarInactiveBackgroundColor: 'white',

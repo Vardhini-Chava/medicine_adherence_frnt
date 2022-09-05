@@ -12,17 +12,17 @@ const MedicinehistoryList = props => {
   return (
     <>
       <Animatable.View animation="zoomInUp" duration={200}>
-        <View key={item.medicine_name + '1'} style={styles.conatiner}>
-          <Card key={item.medicine_name + '2'} style={styles.dateDay}>
+        <View key={item?.medicine_name + '1'} style={styles.conatiner}>
+          <Card key={item?.medicine_name + '2'} style={styles.dateDay}>
             <View style={styles.card}>
-              <View key={item.medicine_name + '3'} style={styles.cardText}>
-                <Text key={item.medicine_name + '7'}>Date - {item.date}</Text>
+              <View key={item?.medicine_name + '3'} style={styles.cardText}>
+                <Text key={item?.medicine_name + '7'}>Date - {item?.date}</Text>
               </View>
               <View>
                 <TouchableOpacity
                   onPress={async () => {
                     let imgar = await AsyncStorage.getItem(
-                      item.date + ' ' + medName,
+                      item?.date + ' ' + medName,
                     );
                     showimgfun(JSON.parse(imgar));
                   }}>
@@ -32,22 +32,22 @@ const MedicinehistoryList = props => {
             </View>
           </Card>
         </View>
-        {item.key.not_taken.map((nti) => {
+        {item?.key.not_taken.map((nti) => {
           return (
-            <View key={item.medicine_name + '4'} style={styles.notTaken}>
-              <Text key={item.medicine_name + '5'}>{nti}</Text>
-              <Text key={item.medicine_name + '6'} style={styles.notTakenText}>
+            <View key={item?.medicine_name + '4'} style={styles.notTaken}>
+              <Text key={item?.medicine_name + '5'}>{nti}</Text>
+              <Text key={item?.medicine_name + '6'} style={styles.notTakenText}>
                 {' '}
                 Not Taken
               </Text>
             </View>
           );
         })}
-        {item.key.taken.map((tti) => {
+        {item?.key.taken.map((tti) => {
           return (
-            <View key={item.medicine_name + '12'} style={styles.taken}>
-              <Text key={item.medicine_name + '22'}>{tti}</Text>
-              <Text key={item.medicine_name + '23'} style={styles.takenText}>
+            <View key={item?.medicine_name + '12'} style={styles.taken}>
+              <Text key={item?.medicine_name + '22'}>{tti}</Text>
+              <Text key={item?.medicine_name + '23'} style={styles.takenText}>
                 {' '}
                 Taken
               </Text>

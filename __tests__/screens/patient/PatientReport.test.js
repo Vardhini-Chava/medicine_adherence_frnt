@@ -18,13 +18,6 @@ jest.mock('@react-navigation/native', () => ({
   }),
 }));
 
-jest.mock('axios', () => ({
- 
-  
-  default : () => ({ goBack: jest.fn() }),
-   request:() => ({ goBack: jest.fn() }),
-}));
-
 
 
 describe('Click send image', () => {

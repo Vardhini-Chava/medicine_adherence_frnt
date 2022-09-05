@@ -1,11 +1,12 @@
 import {Text, View, FlatList, Image} from 'react-native';
 import React, {useState} from 'react';
 import globalDb from '../../repositories/database/globalDb';
-import {useRoute} from '@react-navigation/native';
+import { useRoute, useFocusEffect } from '@react-navigation/native';
 let weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
 import Toast from 'react-native-toast-message';
 import styles from './adherenceStyles/TodayPerformanceStyles';
 import {Box} from '../../components/organisms/medicineTime';
+
 
 let cc=0;
 
@@ -55,7 +56,7 @@ if (i === len - 1) {
     });
   };
 
-  React.useEffect(() => { 
+  useFocusEffect(() => { 
     db.transaction(async function (txn) {
       txn.executeSql(
         'CREATE TABLE IF NOT EXISTS User_medicines(user_id INTEGER PRIMARY KEY NOT NULL, medicine_name TEXT, medicine_des TEXT , title TEXT, time TEXT , days TEXT , start_date TEXT , end_date TEXT , status INTEGER , sync INTEGER)',
@@ -138,6 +139,7 @@ if (i === len - 1) {
       ) : (
         <View>
           <FlatList
+          testID='today'
             data={Timings}
             renderItem={({item}) => {
               return <Box time={item} updatetimes={updatetimes} />;

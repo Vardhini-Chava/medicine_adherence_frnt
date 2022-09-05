@@ -4,6 +4,10 @@ import HistoryDetail from '../../../src/screens/components/HistoryDetail';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({adapter: new Adapter()});
+jest.mock("@react-navigation/native", () => ({
+  ...jest.requireActual("@react-navigation/native"),
+  useEffect: jest.fn(),
+}));
 describe('Click send image', () => {
   it('renders correctly', () => {
     const tree = renderer

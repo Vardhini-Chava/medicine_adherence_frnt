@@ -1,15 +1,22 @@
 import React from 'react';
-import Enzyme from "enzyme";
+import {Enzyme,shallow} from "enzyme";
 import { cleanup } from '@testing-library/react-native';
-import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
+
 import renderer from 'react-test-renderer';
 import Addmedicine from '../../src/screens/AddMedicine';
-Enzyme.configure({adapter: new Adapter()});
+
 jest.mock("@react-navigation/native", () => ({
   ...jest.requireActual("@react-navigation/native"),
   useFocusEffect: jest.fn(),
 }));
-Enzyme.configure({ adapter: new Adapter() });
+
+
+const findNodeByTestId = (wrapper, testID) => {
+  return wrapper.findWhere((node) => {
+    return node.prop("testID") === testID;
+  });
+};
+
 describe('Click send image', () => {
   afterEach(cleanup);
   it('renders correctly', () => {
@@ -18,6 +25,13 @@ describe('Click send image', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+  it("should call onDeleteList", () => {
+    const wrapper = shallow(<Addmedicine  />);
+    const tree = findNodeByTestId(wrapper, "addR");
+    tree.props.onPress();
+  });
+  
+  
 
 
 });

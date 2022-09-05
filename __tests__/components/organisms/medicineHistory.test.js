@@ -5,7 +5,8 @@ import React from "react";
 import configureStore from "redux-mock-store";
 import toJson from "enzyme-to-json";
 import MedicinehistoryList from "../../../src/components/organisms/medicineHistoryList";
-
+import enableHooks from "jest-react-hooks-shallow";
+enableHooks(jest);
 Enzyme.configure({ adapter: new Adapter() });
 const mockStore = configureStore([]);
 
@@ -27,4 +28,9 @@ describe("test collector category", () => {
     expect.assertions(1);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
+  it('test open save button', () => {
+    const wrapper = shallow(<MedicinehistoryList />);
+    wrapper.find('#test')
+  });
+  
 });

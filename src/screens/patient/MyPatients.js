@@ -19,8 +19,8 @@ import {fetchPatients} from '../../redux/actions/patient/PatientActions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-const Mypatient = navigation => {
-  const patients = useSelector(state => state.PatientReducer.patientList);
+export const Mypatient = navigation => {
+   const patients = useSelector(state => state.PatientReducer.patientList);
   const load = useSelector(state => state.PatientReducer.patientList);
   
   const [data, _datastate] = React.useState([]);
@@ -32,6 +32,31 @@ const Mypatient = navigation => {
     dispatch(fetchPatients(user_id));
     refeereshstate(false);
   };
+  async function checkforlog() {
+    const islogged = await GoogleSignin.isSignedIn();
+    if (!islogged) {
+      Alert.alert(
+        'Sign in first to use this feature',
+        'Click ok to proceed',
+        [
+          {
+            text: 'Ok',
+            onPress: () => {
+              navigation.navigate('Login');
+            },
+          },
+          {
+            text: 'Cancel',
+            onPress: () => {
+              navigation.navigate('Home');
+            },
+          },
+        ],
+      );
+    } else {
+      fetchpatients();
+    }
+  }
 
   useFocusEffect(
     React.useCallback(() => {
@@ -79,7 +104,7 @@ const Mypatient = navigation => {
   
   const renderitem = ({item}) => {
     return (
-      <Card id="pressProfile" onPress={() => navProfile} style={styles.card}>
+      <Card id="pressProfile" testID='nav' onPress={() => navProfile} style={styles.card}>
         <View style={styles.top}>
           <ListItem
             style={styles.list}

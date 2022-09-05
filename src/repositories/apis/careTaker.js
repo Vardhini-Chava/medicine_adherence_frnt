@@ -1,15 +1,15 @@
-import axios from './axios';
-import { API_URLS } from '../apiUrl';
+import axios from "./axios";
+import { API_URLS } from "../apiUrl";
 export const careTaker = {
   emailcaretaker: async function name(payload) {
     const response = await axios.get(
-      `${API_URLS.EMAIL_CARETAKER}?email=${payload}&sender={udet.user.givenName}`,
+      `${API_URLS.EMAIL_CARETAKER}?email=${payload}&sender={udet.user.givenName}`
     );
     return response.data;
   },
   caretaker: async function fetchcaretaker(payload) {
     const response = await axios.get(
-      `${API_URLS.CARETAKER}?patientId=${payload}`,
+      `${API_URLS.CARETAKER}?patientId=${payload}`
     );
     return response.data;
   },
@@ -19,7 +19,7 @@ export const careTaker = {
   },
   sendImage: async function sendimages(payload) {
     const response = await axios.post(
-      `${API_URLS.SEND_IMAGE}?medId=${payload}`,
+      `${API_URLS.SEND_IMAGE}?medId=${payload}`
     );
     return response.data;
   },
@@ -32,4 +32,3 @@ axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-

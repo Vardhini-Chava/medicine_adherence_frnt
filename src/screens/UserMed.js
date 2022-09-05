@@ -126,7 +126,7 @@ const UserMed = (navigation) => {
       <View style={styles.lottieView}>
         <LottieView
           style={styles.lottie}
-          source={require('../../assests/animate/med_des.json')}
+          source={require('../../src/assests/animate/med_des.json')}
           autoPlay
           loop
           speed={1}></LottieView>

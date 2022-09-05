@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test caretaker apis test sendimage 1`] = `
+Promise {
+  "_U": 0,
+  "_V": 0,
+  "_W": null,
+  "_X": null,
+}
+`;

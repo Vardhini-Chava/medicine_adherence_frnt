@@ -120,6 +120,7 @@ const Addmedicine = navigation => {
 
               <TouchableOpacity
                 id="addRem"
+                testID='addR'
                 style={styles.rem}
                 onPress={addRemFnc}>
                 <AntIcon

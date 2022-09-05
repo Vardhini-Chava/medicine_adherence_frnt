@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
-import {Text, View} from 'react-native';
-import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import styles from '../../screens/adherence/adherenceStyles/TodayPerformanceStyles';
+import React, { useState } from "react";
+import { Text, View } from "react-native";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
+import styles from "../../screens/adherence/adherenceStyles/TodayPerformanceStyles";
 
 const Box = (props) => {
-  const {time, updatetimes} = props;
+  const { time, updatetimes } = props;
   const [med1, setMed1] = useState(false);
   const [taken, takenstatus] = useState(false);
 
   return (
-    time.length !== 0 && (
+    time?.length !== 0 && (
       <View style={styles.cbContainer}>
         <BouncyCheckbox
           size={22}
@@ -21,6 +21,7 @@ const Box = (props) => {
           iconStyle={styles.cbIcon}
           textStyle={styles.cbText}
           disableBuiltInState
+          testID="BouncyCheckbox"
           onPress={() => {
             setMed1(!med1);
             takenstatus(!taken);

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">37.03% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/27</span>
+                <span class='fraction'>10/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>2/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">37.03% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/27</span>
+                <span class='fraction'>10/27</span>
             </div>
         
             
@@ -186,23 +186,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -285,26 +285,26 @@ function <span class="fstat-no" title="function not covered" >PlaySound(</span>)
   });
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Pushnotificationforeground(</span>mssg) {
+function Pushnotificationforeground(mssg) {
   let body;
-  let big_picure_url = <span class="cstat-no" title="statement not covered" >'';</span>
-<span class="cstat-no" title="statement not covered" >  if (mssg.notification.title === 'caretaker') {</span>
+  let big_picure_url = '';
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (mssg.notification === 'caretaker') {
 <span class="cstat-no" title="statement not covered" >    big_picure_url = mssg.notification.android.imageUrl;</span>
-<span class="cstat-no" title="statement not covered" >    body = mssg.notification.body;</span>
+<span class="cstat-no" title="statement not covered" >    body = mssg.notification;</span>
 <span class="cstat-no" title="statement not covered" >    generatenotificationforcaretaker(mssg, body, big_picure_url);</span>
-  } else <span class="cstat-no" title="statement not covered" >if (mssg.notification.title === 'request') {</span>
-<span class="cstat-no" title="statement not covered" >    body = mssg.notification.body;</span>
+  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (mssg.notification === 'request') {
+<span class="cstat-no" title="statement not covered" >    body = mssg.notification;</span>
 <span class="cstat-no" title="statement not covered" >    generatenotificationforcaretaker(mssg, body, big_picure_url);</span>
   } else {
-<span class="cstat-no" title="statement not covered" >    body = mssg.notification.body;</span>
-<span class="cstat-no" title="statement not covered" >    generatenotificationforpatient(mssg, body);</span>
+    body = mssg.notification;
+    generatenotificationforpatient(mssg, body);
   }
 }
 &nbsp;
-const generatenotificationforpatient = <span class="fstat-no" title="function not covered" >(m</span>ssg, body) =&gt; {
-  let num = <span class="cstat-no" title="statement not covered" >Math.floor(Math.random() * 90000) + 10000;</span>
-<span class="cstat-no" title="statement not covered" >  PushNotification.localNotificationSchedule({</span>
-    title: mssg.notification.title,
+const generatenotificationforpatient = (mssg, body) =&gt; {
+  let num = Math.floor(Math.random() * 90000) + 10000;
+  PushNotification({
+    title: mssg.notification,
     message: body,
     subText: '',
     id: num.toString(),
@@ -343,7 +343,7 @@ const generatenotificationforcaretaker = <span class="fstat-no" title="function 
     },
 <span class="fstat-no" title="function not covered" >    cr</span>eated =&gt; <span class="cstat-no" title="statement not covered" >Logger.loggerInfo(`createChannel returned '${created}'`),</span>
   );
-<span class="cstat-no" title="statement not covered" >  PushNotification.localNotificationSchedule({</span>
+<span class="cstat-no" title="statement not covered" >  PushNotification({</span>
     title: mssg.notification.title,
     message: body,
     subText: '',
@@ -373,7 +373,7 @@ export {PlaySound, Pushnotificationforeground};
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-24T17:11:06.645Z
+                at 2022-09-05T06:00:44.193Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

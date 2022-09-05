@@ -37,6 +37,7 @@ exports[`Click send image renders correctly 1`] = `
           "width": "100%",
         }
       }
+      testID="pic"
     >
       <View
         style={

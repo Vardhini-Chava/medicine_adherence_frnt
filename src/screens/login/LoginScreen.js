@@ -7,13 +7,12 @@ import {
   GoogleSigninButton,
 } from '@react-native-google-signin/google-signin';
 import messaging from '@react-native-firebase/messaging';
-import { Signupuser } from '../../repositories/apis/access';
+import {Signupuser} from '../../repositories/apis/access';
 import * as Progress from 'react-native-progress';
 import styles from './loginStyles/LoginStyles';
 import Logger from '../../components/logger';
 
-
-const Loginscreen = (navigation) => {
+const Loginscreen = navigation => {
   const [loading, loadingstate] = React.useState(false);
 
   async function loginuser() {
@@ -24,7 +23,7 @@ const Loginscreen = (navigation) => {
       loadingstate(true);
       const response = await Signupuser.loginuser({userinfo, token});
       const res = await response.json();
-     Logger.loggerInfo(res);
+      Logger.loggerInfo(res);
       if (res.status === 'Success') {
         await AsyncStorage.setItem('user_id', res.userEntity[0].userId);
         await AsyncStorage.setItem('user_name', res.userEntity[0].userName);
@@ -66,7 +65,8 @@ const Loginscreen = (navigation) => {
         style={styles.signInButton}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Dark}
-        id='signin'
+        id="signin"
+        testID="login"
         onPress={() =>
           loginuser()
             .then(() => Logger.loggerInfo('Google'))

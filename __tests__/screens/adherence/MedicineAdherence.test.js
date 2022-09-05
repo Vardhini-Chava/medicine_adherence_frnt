@@ -1,22 +1,25 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import Medicineadherence from '../../../src/screens/adherence/MedicineAdherence';
+import toJson from "enzyme-to-json";
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-Enzyme.configure({adapter: new Adapter()});
+Enzyme.configure({ adapter: new Adapter() });
 jest.mock("@react-native-google-signin/google-signin", () => ({
   default: jest.fn(),
 }));
-describe('Click send image', () => {
+jest.mock("@react-navigation/native", () => ({
+  ...jest.requireActual("@react-navigation/native"),
+  useFocusEffect: jest.fn(),
+  useEffect: jest.fn(),
+  useState: jest.fn(),
+}));
+describe('Medicine Adherence test', () => {
   it('renders correctly', () => {
-    const tree = renderer
-      .create(<Medicineadherence navigation={undefined} />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const wrapper = shallow(<Medicineadherence />);
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
-  it('test open save button', () => {
-    const mockFn = jest.fn();
-    const wrapper = shallow(<Medicineadherence pressFnc={mockFn} />);
-    wrapper.find('#press').simulate('press');
+  it('test TouchableOpacity', () => {
+    const wrapper = shallow(<Medicineadherence />);
+    wrapper.find('#press').props().onPress("");
   });
 });

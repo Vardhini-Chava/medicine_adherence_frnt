@@ -5,7 +5,8 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import toJson from 'enzyme-to-json';
 import {Pushnotificationforeground} from '../../../src/components/alarm/pushNotificationConfig';
-
+import enableHooks from "jest-react-hooks-shallow";
+enableHooks(jest);
 Enzyme.configure({adapter: new Adapter()});
 const mockStore = configureStore([]);
 jest.mock('react-native-push-notification', () => ({
@@ -14,6 +15,10 @@ jest.mock('react-native-push-notification', () => ({
 jest.mock('react-native-sound', () => ({
   default: jest.fn(),
 }));
+jest.mock('react-native-push-notification', () => ({
+  default: jest.fn(() => ({ createChannel: jest.fn })),
+}));
+
 describe('test collector category', () => {
   let store;
   store = mockStore({
@@ -31,5 +36,10 @@ describe('test collector category', () => {
 
     expect.assertions(1);
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('test open save button', () => {
+    const wrapper = shallow(<Pushnotificationforeground />);
+    wrapper.find('#test')
   });
 });

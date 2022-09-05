@@ -5,8 +5,6 @@ import React from "react";
 import configureStore from "redux-mock-store";
 import toJson from "enzyme-to-json";
 import AdherencePercentage from "../../../src/components/adherence/adherencePercentage";
-
-import { Pressable } from "react-native";
 import enableHooks from "jest-react-hooks-shallow";
 enableHooks(jest);
 Enzyme.configure({ adapter: new Adapter() });

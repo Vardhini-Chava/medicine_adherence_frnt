@@ -13,13 +13,14 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
 
+
 const DrawerNavigator = navigation => {
   const camFnc = () => {
     navigation.navigate('Camera');
   };
   const homeFnc = () => {
     return (
-      <TouchableOpacity id="cam" onPress={camFnc}>
+      <TouchableOpacity testID='cam' id="cam" onPress={camFnc}>
         <Icon name="camera" size={30} color="#3743ab" />
       </TouchableOpacity>
     );
@@ -48,6 +49,7 @@ const DrawerNavigator = navigation => {
       screenOptions={{headerTitleStyle: {color: 'black'}}}
       drawerContent={props => <CustomHeader {...props} />}>
       <Drawer.Screen
+      testID="homeF"
         name="Home"
         options={{
           headerRightContainerStyle: {marginRight: 15},
@@ -59,6 +61,7 @@ const DrawerNavigator = navigation => {
         component={HomeScreen}
       />
       <Drawer.Screen
+      testID="medI"
         name="Medicines"
         component={CareTaker}
         options={{
@@ -70,6 +73,7 @@ const DrawerNavigator = navigation => {
         }}
       />
       <Drawer.Screen
+      testID="manI"
         name="Patient"
         component={Patientcomp}
         options={{
@@ -80,6 +84,7 @@ const DrawerNavigator = navigation => {
         }}
       />
       <Drawer.Screen
+      testID="userI"
         options={{
           drawerActiveTintColor: 'white',
           drawerInactiveTintColor: 'white',
@@ -91,6 +96,7 @@ const DrawerNavigator = navigation => {
       />
 
       <Drawer.Screen
+      testID="settingI"
         name="Settings"
         component={Settings}
         options={{
@@ -100,6 +106,7 @@ const DrawerNavigator = navigation => {
         }}
       />
       <Drawer.Screen
+      testID="camI"
         name="Send Image"
         component={CameraScreen}
         options={{

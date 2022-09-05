@@ -1,30 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`test collector category test category 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "getServerState": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "subscription": Object {
-        "addNestedSub": [Function],
-        "getListeners": [Function],
-        "handleChangeWrapper": [Function],
-        "isSubscribed": [Function],
-        "notifyNestedSubs": [Function],
-        "trySubscribe": [Function],
-        "tryUnsubscribe": [Function],
-      },
-    }
-  }
+<view
+  style="padding:15px;padding-left:30px;margin-top:14px"
 >
-  <Box />
-</ContextProvider>
+  <view
+    accessibilitystate="[object Object]"
+    focusable="true"
+    style="align-items:center;flex-direction:row;opacity:1"
+    testid="BouncyCheckbox"
+  >
+    <view
+      style="transform:[object Object];width:22px;height:22px;border-width:1.3px;border-color:#3743ab;border-radius:11px;align-items:center;justify-content:center;background-color:#FFFFFF"
+    />
+    <view
+      style="0:[object Object]"
+    >
+      <text
+        style="0:[object Object];1:[object Object]"
+      />
+    </view>
+  </view>
+  <text
+    style="color:red;margin-left:40px"
+  >
+    Not Taken
+  </text>
+</view>
 `;
